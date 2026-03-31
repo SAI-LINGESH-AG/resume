@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Lingesh R – Data Engineer & AI/ML Engineer</title>
+  <meta name="description" content="Sai Lingesh R – Data Engineer, AI/LLM Engineer, and ML Practitioner. Specializing in Databricks, PySpark, LLMs, and intelligent data systems." />
+  <meta name="keywords" content="Data Engineer, AI Engineer, ML Engineer, Databricks, PySpark, Python, LLM, Machine Learning, Generative AI" />
+  <meta property="og:title" content="Sai Lingesh R – Data Engineer & AI Engineer" />
+  <meta property="og:description" content="Portfolio & Resume of Sai Lingesh R – Data Engineering, AI/LLM, Machine Learning." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f8f6;
+      --surface: #ffffff;
+      --surface2: #f3f2ef;
+      --border: #e5e3de;
+      --text: #1a1917;
+      --text-muted: #6b6860;
+      --text-light: #9c9a95;
+      --accent: #1a5276;
+      --accent-light: #eaf0f6;
+      --accent2: #c0392b;
+      --tag-bg: #eef2f7;
+      --tag-text: #2c5f8a;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --radius: 8px;
+      --font-serif: 'DM Serif Display', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    [data-theme="dark"] {
+      --bg: #12110f;
+      --surface: #1c1b18;
+      --surface2: #252420;
+      --border: #333129;
+      --text: #f0ede8;
+      --text-muted: #9c9a95;
+      --text-light: #6b6860;
+      --accent: #5b9bd5;
+      --accent-light: #1a2a3a;
+      --accent2: #e05c4e;
+      --tag-bg: #1e2d3d;
+      --tag-text: #7ab3e0;
+      --shadow: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .topbar-logo {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .open-to-work {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #1a7a4a;
+      background: #e8f8ee;
+      border: 1px solid #b6e8cc;
+      border-radius: 999px;
+      padding: 3px 10px;
+    }
+
+    [data-theme="dark"] .open-to-work {
+      color: #4cce82;
+      background: #0f2a1a;
+      border-color: #1e5c36;
+    }
+
+    .open-to-work::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #1a7a4a;
+      animation: pulse 2s infinite;
+    }
+
+    [data-theme="dark"] .open-to-work::before { background: #4cce82; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .topbar-right { display: flex; align-items: center; gap: 0.5rem; }
+
+    .version-selector {
+      display: flex;
+      gap: 2px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2px;
+    }
+
+    .ver-btn {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 4px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-muted);
+      transition: all 0.15s;
+      font-family: var(--font-sans);
+    }
+
+    .ver-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .icon-btn {
+      width: 34px; height: 34px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      transition: all 0.15s;
+    }
+
+    .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: var(--font-sans);
+      text-decoration: none;
+    }
+
+    .btn-pdf {
+      background: var(--accent2);
+      color: #fff;
+      border: none;
+    }
+
+    .btn-pdf:hover { opacity: 0.88; }
+
+    .btn-doc {
+      background: var(--surface2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-doc:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      padding: 2.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-tagline {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      max-width: 520px;
+      font-style: italic;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 12px;
+      transition: all 0.15s;
+      background: var(--surface2);
+    }
+
+    .hero-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      min-width: 180px;
+    }
+
+    .stat-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.9rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-icon {
+      width: 28px; height: 28px;
+      background: var(--accent-light);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── SUMMARY ── */
+    .summary-text {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item { margin-bottom: 1.5rem; }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .exp-role {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .exp-dates {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-light);
+      background: var(--surface2);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .exp-company {
+      font-size: 0.88rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
+      top: 3px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .skill-category-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-tag {
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 5px;
+      padding: 4px 10px;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+    }
+
+    .skill-tag:hover { border-color: var(--accent); }
+
+    .skill-tag.highlight {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover { border-color: var(--accent); }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .project-name {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .project-meta {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--text-light);
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .project-highlights {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-highlights li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .project-highlights li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .tech-pill {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      background: var(--surface);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .edu-degree {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-institution {
+      font-size: 0.86rem;
+      color: var(--accent);
+    }
+
+    .edu-year {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .cert-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-decoration: none;
+      display: block;
+      transition: all 0.15s;
+    }
+
+    .cert-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cert-issuer {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .cert-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .cert-dates {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--text-light);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      .topbar, .hero-stats, footer { display: none; }
+      body { background: white; font-size: 13px; }
+      .page-wrapper { max-width: 100%; padding: 0; }
+      .section, .hero {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+        margin-bottom: 0.8rem;
+        padding: 1rem;
+      }
+      .hero { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 0 1rem; flex-wrap: wrap; height: auto; padding: 0.5rem 1rem; gap: 0.5rem; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: repeat(4, 1fr); min-width: unset; }
+      .page-wrapper { padding: 1rem 1rem 3rem; }
+      .section { padding: 1.2rem; }
+      .certs-grid { grid-template-columns: 1fr; }
+      .version-selector { display: none; }
+    }
+
+    /* Fade in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in:nth-child(1) { animation-delay: 0.05s; }
+    .fade-in:nth-child(2) { animation-delay: 0.1s; }
+    .fade-in:nth-child(3) { animation-delay: 0.15s; }
+    .fade-in:nth-child(4) { animation-delay: 0.2s; }
+    .fade-in:nth-child(5) { animation-delay: 0.25s; }
+    .fade-in:nth-child(6) { animation-delay: 0.3s; }
+    .fade-in:nth-child(7) { animation-delay: 0.35s; }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-left">
+    <a href="#" class="topbar-logo">SL</a>
+    <span class="open-to-work" id="otwBadge">Open to Work</span>
+  </div>
+  <div class="topbar-right">
+    <div class="version-selector">
+      <button class="ver-btn active" data-version="de" onclick="switchVersion('de')">Data Eng</button>
+      <button class="ver-btn" data-version="swe" onclick="switchVersion('swe')">SWE</button>
+      <button class="ver-btn" data-version="ds" onclick="switchVersion('ds')">Data Sci</button>
+      <button class="ver-btn" data-version="ai" onclick="switchVersion('ai')">AI/LLM</button>
+    </div>
+    <button class="icon-btn" onclick="toggleTheme()" title="Toggle dark mode" id="themeBtn">🌙</button>
+    <button class="download-btn btn-pdf" onclick="downloadPDF()">⬇ PDF</button>
+    <button class="download-btn btn-doc" onclick="downloadDOC()">⬇ DOCX</button>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="page-wrapper" id="resumeContent">
+  <div id="sections-container"></div>
+</main>
+
+<footer>
+  <p>Built with care · <a href="https://www.linkedin.com/in/sai-lingesh" target="_blank">LinkedIn</a> · <a href="https://github.com/SAI-LINGESH-AG" target="_blank">GitHub</a></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  // ── STATE ──
+  let resumeData = null;
+  let currentVersion = 'de';
+
+  // ── LOAD DATA ──
+  async function loadData() {
+    try {
+      const res = await fetch('./data/resume.json');
+      resumeData = await res.json();
+      // Check URL param for version
+      const urlParams = new URLSearchParams(window.location.search);
+      const vParam = urlParams.get('role');
+      if (vParam && resumeData.versions[vParam]) currentVersion = vParam;
+      render();
+    } catch (e) {
+      document.getElementById('sections-container').innerHTML = '<p style="padding:2rem;color:red">Error loading resume data. Make sure resume.json is in the /data/ folder.</p>';
+    }
+  }
+
+  // ── RENDER ──
+  function render() {
+    if (!resumeData) return;
+    const v = resumeData.versions[currentVersion];
+    const p = resumeData.personal;
+    const s = resumeData.stats;
+
+    // Update version buttons
+    document.querySelectorAll('.ver-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.version === currentVersion);
+    });
+
+    // OTW badge
+    document.getElementById('otwBadge').style.display = p.open_to_work ? 'inline-flex' : 'none';
+
+    const container = document.getElementById('sections-container');
+    container.innerHTML = `
+      ${renderHero(p, v, s)}
+      ${renderSummary(v)}
+      ${renderExperience()}
+      ${renderSkills(v)}
+      ${renderProjects()}
+      ${renderEducation()}
+      ${renderCertifications()}
+    `;
+
+    // Re-trigger fade-in
+    container.querySelectorAll('.fade-in').forEach((el, i) => {
+      el.style.animationDelay = (i * 0.07) + 's';
+    });
+  }
+
+  function renderHero(p, v, s) {
+    return `
+    <div class="hero fade-in">
+      <div class="hero-left">
+        <h1 class="hero-name">${p.name}</h1>
+        <div class="hero-title" id="heroTitle">${v.title}</div>
+        <div class="hero-tagline" id="heroTagline">${v.tagline}</div>
+        <div class="hero-links">
+          <a class="hero-link" href="mailto:${p.email}">✉ ${p.email}</a>
+          <a class="hero-link" href="${p.linkedin}" target="_blank">in LinkedIn</a>
+          <a class="hero-link" href="${p.github}" target="_blank">⌥ GitHub</a>
+          <a class="hero-link" href="${p.portfolio}" target="_blank">🏆 Certificates</a>
+          ${p.open_to_work ? `<span class="hero-link" style="cursor:default">📍 ${p.availability}</span>` : ''}
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-num">${s.years_experience}+</div>
+          <div class="stat-label">Years Exp</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">${s.projects_completed}+</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">${s.certifications_count}+</div>
+          <div class="stat-label">Certs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">${s.technologies_count}+</div>
+          <div class="stat-label">Skills</div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function renderSummary(v) {
+    return `
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <h2 class="section-title">Professional Summary</h2>
+      </div>
+      <p class="summary-text" id="summaryText">${v.summary}</p>
+    </div>`;
+  }
+
+  function renderExperience() {
+    const exp = resumeData.experience;
+    const items = exp.map(job => `
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">${job.role}</span>
+          <span class="exp-dates">${job.start_date} – ${job.end_date}</span>
+        </div>
+        <div class="exp-company">${job.company} · ${job.location} · ${job.type}</div>
+        <ul class="exp-bullets">
+          ${job.bullets.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+      </div>
+    `).join('');
+
+    return `
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">💼</div>
+        <h2 class="section-title">Work Experience</h2>
+      </div>
+      ${items}
+    </div>`;
+  }
+
+  function renderSkills(v) {
+    const sk = resumeData.skills;
+    const topSkills = v.top_skills;
+    const categories = [
+      { label: 'Languages', key: 'languages' },
+      { label: 'Frameworks & Libraries', key: 'frameworks_libraries' },
+      { label: 'Data Engineering', key: 'data_engineering' },
+      { label: 'AI / Machine Learning', key: 'ai_ml' },
+      { label: 'AI Tools & Frameworks', key: 'ai_tools_frameworks' },
+      { label: 'Databases', key: 'databases' },
+      { label: 'Cloud & DevOps', key: 'cloud_devops' },
+      { label: 'Statistical & Analytics', key: 'statistical_analytics' },
+      { label: 'Tools & IDEs', key: 'tools_ide' },
+    ];
+
+    const rows = categories.map(cat => `
+      <div>
+        <div class="skill-category-label">${cat.label}</div>
+        <div class="skill-tags">
+          ${sk[cat.key].map(s => `<span class="skill-tag ${topSkills.includes(s) ? 'highlight' : ''}">${s}</span>`).join('')}
+        </div>
+      </div>
+    `).join('');
+
+    return `
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">⚡</div>
+        <h2 class="section-title">Technical Skills</h2>
+      </div>
+      <div class="skills-grid">${rows}</div>
+    </div>`;
+  }
+
+  function renderProjects() {
+    const projects = resumeData.projects.filter(p => p.tags.includes(currentVersion));
+    const cards = projects.map(p => `
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">${p.name}</span>
+          <span class="project-meta">${p.duration} · Team: ${p.team_size}</span>
+        </div>
+        <div class="project-desc">${p.description}</div>
+        <ul class="project-highlights">
+          ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+        </ul>
+        <div class="tech-stack">
+          ${p.tech_stack.map(t => `<span class="tech-pill">${t}</span>`).join('')}
+        </div>
+      </div>
+    `).join('');
+
+    return `
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🚀</div>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="projects-grid">${cards}</div>
+    </div>`;
+  }
+
+  function renderEducation() {
+    const items = resumeData.education.map(e => `
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">${e.degree}</div>
+          <div class="edu-institution">${e.institution}</div>
+        </div>
+        <div class="edu-year">${e.year}</div>
+      </div>
+    `).join('');
+
+    return `
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🎓</div>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="edu-grid">${items}</div>
+    </div>`;
+  }
+
+  function renderCertifications() {
+    const items = resumeData.certifications.map(c => `
+      <a class="cert-card" href="${c.credential_url}" target="_blank">
+        <div class="cert-issuer">${c.issuer}</div>
+        <div class="cert-name">${c.name}</div>
+        <div class="cert-dates">Issued: ${c.issued}${c.expires ? ' · Exp: ' + c.expires : ''}</div>
+      </a>
+    `).join('');
+
+    return `
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏆</div>
+        <h2 class="section-title">Certifications</h2>
+      </div>
+      <div class="certs-grid">${items}</div>
+    </div>`;
+  }
+
+  // ── VERSION SWITCH ──
+  function switchVersion(ver) {
+    currentVersion = ver;
+    render();
+  }
+
+  // ── THEME ──
+  function toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  }
+
+  // ── DOWNLOAD PDF ──
+  function downloadPDF() {
+    const v = resumeData.versions[currentVersion];
+    const p = resumeData.personal;
+    const opt = {
+      margin: [10, 10, 10, 10],
+      filename: `${p.name.replace(/ /g,'_')}_${v.title.replace(/ \/ /g,'_').replace(/ /g,'_')}_Resume.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    const element = document.getElementById('resumeContent');
+    html2pdf().set(opt).from(element).save();
+  }
+
+  // ── DOWNLOAD DOCX ──
+  function downloadDOC() {
+    if (!resumeData) return;
+    const v = resumeData.versions[currentVersion];
+    const p = resumeData.personal;
+    const exp = resumeData.experience;
+    const sk = resumeData.skills;
+    const projects = resumeData.projects.filter(pr => pr.tags.includes(currentVersion));
+
+    const docContent = generateDOCXContent(p, v, exp, sk, projects);
+    const blob = new Blob([docContent], { type: 'application/msword' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${p.name.replace(/ /g,'_')}_${v.title.replace(/ \/ /g,'_').replace(/ /g,'_')}_Resume.doc`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function generateDOCXContent(p, v, exp, sk, projects) {
+    const allSkills = [
+      ...resumeData.skills.languages,
+      ...resumeData.skills.frameworks_libraries,
+      ...resumeData.skills.data_engineering,
+      ...resumeData.skills.ai_ml,
+      ...resumeData.skills.ai_tools_frameworks,
+      ...resumeData.skills.databases,
+      ...resumeData.skills.cloud_devops
+    ].join(', ');
+
+    let html = `
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #1a1917; margin: 2cm; }
+  h1 { font-size: 22pt; color: #1a1917; margin-bottom: 2pt; }
+  h2 { font-size: 12pt; color: #1a5276; border-bottom: 1.5px solid #1a5276; padding-bottom: 3pt; margin-top: 14pt; margin-bottom: 6pt; text-transform: uppercase; letter-spacing: 0.05em; }
+  .subtitle { font-size: 12pt; color: #1a5276; margin-bottom: 3pt; }
+  .contact { font-size: 10pt; color: #555; margin-bottom: 12pt; }
+  .summary { font-size: 11pt; color: #333; margin-bottom: 10pt; line-height: 1.5; }
+  .job-header { display: flex; justify-content: space-between; }
+  .job-title { font-size: 11pt; font-weight: bold; }
+  .job-company { font-size: 10pt; color: #1a5276; margin-bottom: 4pt; }
+  .job-dates { font-size: 10pt; color: #888; }
+  ul { margin: 4pt 0 8pt 16pt; }
+  li { font-size: 10.5pt; color: #333; margin-bottom: 3pt; line-height: 1.45; }
+  .section-skills { font-size: 10.5pt; line-height: 1.7; }
+  .skill-cat { font-weight: bold; color: #1a5276; }
+  .proj-name { font-weight: bold; font-size: 11pt; }
+  .proj-meta { font-size: 10pt; color: #888; }
+  .proj-desc { font-size: 10.5pt; color: #333; margin: 3pt 0; }
+  .edu-row { margin-bottom: 6pt; }
+  .edu-degree { font-weight: bold; }
+  .edu-inst { color: #1a5276; font-size: 10.5pt; }
+  .cert-item { margin-bottom: 4pt; font-size: 10.5pt; }
+</style>
+</head>
+<body>
+<h1>${p.name}</h1>
+<div class="subtitle">${v.title}</div>
+<div class="contact">${p.email} | ${p.phone} | ${p.location} | LinkedIn: ${p.linkedin} | GitHub: ${p.github}</div>
+
+<h2>Professional Summary</h2>
+<div class="summary">${v.summary}</div>
+
+<h2>Work Experience</h2>`;
+
+    exp.forEach(job => {
+      html += `
+<div>
+<table width="100%"><tr>
+  <td><span class="job-title">${job.role}</span></td>
+  <td align="right"><span class="job-dates">${job.start_date} – ${job.end_date}</span></td>
+</tr></table>
+<div class="job-company">${job.company} · ${job.location}</div>
+<ul>
+  ${job.bullets.map(b => `<li>${b}</li>`).join('')}
+</ul>
+</div>`;
+    });
+
+    html += `<h2>Technical Skills</h2>
+<div class="section-skills">
+<span class="skill-cat">Languages:</span> ${sk.languages.join(', ')}<br/>
+<span class="skill-cat">Frameworks & Libraries:</span> ${sk.frameworks_libraries.join(', ')}<br/>
+<span class="skill-cat">Data Engineering:</span> ${sk.data_engineering.join(', ')}<br/>
+<span class="skill-cat">AI / Machine Learning:</span> ${sk.ai_ml.join(', ')}<br/>
+<span class="skill-cat">AI Tools & Frameworks:</span> ${sk.ai_tools_frameworks.join(', ')}<br/>
+<span class="skill-cat">Databases:</span> ${sk.databases.join(', ')}<br/>
+<span class="skill-cat">Cloud & DevOps:</span> ${sk.cloud_devops.join(', ')}<br/>
+<span class="skill-cat">Statistical & Analytics:</span> ${sk.statistical_analytics.join(', ')}
+</div>
+
+<h2>Projects</h2>`;
+
+    projects.forEach(pr => {
+      html += `
+<div>
+<span class="proj-name">${pr.name}</span> <span class="proj-meta">| ${pr.duration} | Team Size: ${pr.team_size} | Role: ${pr.role}</span>
+<div class="proj-desc">${pr.description}</div>
+<ul>${pr.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
+<div class="proj-desc"><strong>Tech:</strong> ${pr.tech_stack.join(', ')}</div>
+</div>`;
+    });
+
+    html += `<h2>Education</h2>`;
+    resumeData.education.forEach(e => {
+      html += `<div class="edu-row"><span class="edu-degree">${e.degree}</span><br/><span class="edu-inst">${e.institution}</span> | ${e.year}</div>`;
+    });
+
+    html += `<h2>Certifications</h2>`;
+    resumeData.certifications.forEach(c => {
+      html += `<div class="cert-item"><strong>${c.name}</strong> – ${c.issuer}, ${c.issued}${c.expires ? ' (Exp: ' + c.expires + ')' : ''}</div>`;
+    });
+
+    html += `</body></html>`;
+    return html;
+  }
+
+  // ── INIT THEME ──
+  (function() {
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('themeBtn');
+      if (btn) btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+    });
+  })();
+
+  // ── BOOT ──
+  loadData();
+</script>
+</body>
+</html>

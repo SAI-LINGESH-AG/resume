@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "last_updated": "2025-01-01",
+    "default_version": "de",
+    "available_versions": ["de", "swe", "ds", "ai"]
+  },
+  "personal": {
+    "name": "Sai Lingesh R",
+    "initials": "SL",
+    "email": "sailingesh0407@gmail.com",
+    "phone": "9698451787",
+    "location": "Chennai, India",
+    "linkedin": "https://www.linkedin.com/in/sai-lingesh",
+    "portfolio": "https://sai-lingesh-ag.github.io/certificates/",
+    "open_to_work": true,
+    "availability": "Immediately Available"
+  },
+  "versions": {
+    "de": {
+      "title": "Data Engineer",
+      "tagline": "Building scalable data pipelines & intelligent automation systems",
+      "summary": "Results-driven Data Engineer with hands-on experience designing and deploying end-to-end data pipelines, workflow automation, and AI-powered solutions. Proficient in Databricks, PySpark, Apache Airflow, and cloud-native tools. Passionate about transforming raw data into reliable, high-performance systems that drive business decisions.",
+      "top_skills": ["Databricks", "PySpark", "Apache Airflow", "Python", "SQL", "Azure/AWS", "MLflow", "FastAPI"]
+    },
+    "swe": {
+      "title": "Software Engineer / Full Stack Developer",
+      "tagline": "Crafting robust full-stack applications with data-driven backends",
+      "summary": "Versatile Software Engineer with experience building full-stack web applications, REST APIs, and data-intensive backend systems. Skilled in Python, FastAPI, Streamlit, MySQL, and modern DevOps practices including GitLab CI/CD. Adept at translating complex business requirements into clean, maintainable, and scalable software solutions.",
+      "top_skills": ["Python", "FastAPI", "Streamlit", "MySQL", "GitLab CI/CD", "REST APIs", "Testing & Debugging", "VS Code"]
+    },
+    "ds": {
+      "title": "Data Scientist / ML Engineer",
+      "tagline": "Turning complex datasets into actionable insights and predictive models",
+      "summary": "Analytical Data Scientist and ML Engineer with expertise in exploratory data analysis, machine learning model development, and statistical modeling. Experienced with supervised and unsupervised learning, feature engineering, MLflow model tracking, and delivering data visualizations that communicate insights clearly to stakeholders.",
+      "top_skills": ["Machine Learning", "Python", "Pandas", "NumPy", "Scikit-learn", "MLflow", "EDA", "Data Visualization"]
+    },
+    "ai": {
+      "title": "AI / LLM Engineer",
+      "tagline": "Designing intelligent AI agents and generative AI solutions at scale",
+      "summary": "Innovative AI/LLM Engineer with proven experience building production-grade conversational AI systems, agentic pipelines, and generative AI applications. Proficient in OpenAI, Phi-3, Groq, CrewAI, and ChromaDB. Holds three Databricks certifications in Generative AI and Data Engineering. Passionate about pushing the boundaries of what LLMs and SLMs can automate.",
+      "top_skills": ["LLMs", "SLMs", "Prompt Engineering", "CrewAI", "OpenAI API", "ChromaDB", "Generative AI", "AI Agents"]
+    }
+  },
+  "experience": [
+    {
+      "company": "Agilisium Consulting Private Limited",
+      "role": "Data Engineer",
+      "location": "India",
+      "start_date": "Dec 2024",
+      "end_date": "Present",
+      "type": "Full-time",
+      "bullets": [
+        "Designed and deployed end-to-end health check data pipelines on Databricks, categorizing pipeline runs as 'On-Time', 'Delayed', or 'Missed SLA', reducing undetected failures by proactively surfacing issues.",
+        "Built automated SMTP-based email alert pipelines triggering notifications for missed SLA and delayed jobs, improving incident response time across data teams.",
+        "Developed pre-QC alert pipelines for new source system onboarding, ensuring data quality checks are enforced before ingestion into the data lakehouse.",
+        "Engineered automated Airflow DAG scheduling logic enabling brand-specific job triggering on configurable date-time windows, reducing manual intervention in pipeline operations.",
+        "Designed and developed the Candidate Assessment Portal as a solo full-stack engineer using Streamlit, MySQL, Pandas, and XlsxWriter — featuring role-based access control, dynamic MCQ quiz engine with timers, and admin analytics dashboards.",
+        "Built a Clinical Trials Chatbot leveraging Microsoft Phi-3-mini SLM and Groq open-source API, integrating ChromaDB for vector retrieval over structured/unstructured documents and S3/database connections for scalable input sources.",
+        "Implemented GitLab CI/CD workflows for version control and automated deployment of data engineering pipelines, reducing release cycle time.",
+        "Collaborated on UI/UX design and web-based tooling for internal data platforms, improving usability for non-technical stakeholders."
+      ],
+      "tags": ["de", "swe", "ds", "ai"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj_001",
+      "name": "Candidate Assessment Portal",
+      "client": "Agilisium Consulting",
+      "duration": "Feb 2025 – Mar 2025",
+      "team_size": 1,
+      "role": "Full-Stack Application Engineer",
+      "description": "Interactive web-based platform to streamline candidate evaluations with role-based access, dynamic quiz engine, and admin analytics.",
+      "highlights": [
+        "Built secure authentication with role-based access (Admin / Candidate) in Streamlit",
+        "Implemented Excel-based MCQ upload with domain and tech stack categorization",
+        "Developed quiz engine with countdown timers, auto-submission, and real-time scoring",
+        "Created admin dashboards with Pandas + XlsxWriter for candidate performance export",
+        "Designed and managed full MySQL schema with CRUD operations"
+      ],
+      "tech_stack": ["Python", "Streamlit", "MySQL", "Pandas", "XlsxWriter", "Authentication"],
+      "tags": ["swe", "ds", "de"]
+    },
+    {
+      "id": "proj_002",
+      "name": "Clinical Trials Chatbot",
+      "client": "Agilisium Consulting",
+      "duration": "2025",
+      "team_size": 2,
+      "role": "AI/LLM Engineer",
+      "description": "Conversational AI chatbot for querying ClinicalTrials.gov data using a Small Language Model (SLM) with vector retrieval over structured and unstructured inputs.",
+      "highlights": [
+        "Integrated Microsoft Phi-3-mini SLM and Groq open-source API for low-latency inference",
+        "Built ChromaDB vector store for semantic retrieval over clinical trial documents",
+        "Supported structured and unstructured file inputs (PDFs, CSVs, database connections, S3)",
+        "Designed conversational context management for multi-turn dialogue accuracy",
+        "Enabled flexible data source connections including S3 buckets and relational databases"
+      ],
+      "tech_stack": ["Python", "Phi-3-mini SLM", "Groq API", "ChromaDB", "LangChain", "S3", "NLP"],
+      "tags": ["ai", "ds", "de"]
+    },
+    {
+      "id": "proj_003",
+      "name": "Data Pipeline Health Check System",
+      "client": "Agilisium Consulting",
+      "duration": "2025",
+      "team_size": 3,
+      "role": "Data Engineer",
+      "description": "Automated pipeline monitoring and alerting system built on Databricks and Apache Airflow, providing real-time SLA tracking and email-based incident alerts.",
+      "highlights": [
+        "Categorized pipeline runs into On-Time, Delayed, and Missed SLA buckets",
+        "Built SMTP email alert pipeline for automated stakeholder notifications",
+        "Developed pre-QC new source system alert pipeline for early issue detection",
+        "Automated brand-specific Airflow DAG scheduling based on configurable time windows",
+        "Reduced manual monitoring effort through full end-to-end automation"
+      ],
+      "tech_stack": ["Databricks", "Apache Airflow", "PySpark", "Python", "SMTP", "SQL", "GitLab"],
+      "tags": ["de", "swe"]
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "SQL", "Spark SQL", "PySpark"],
+    "frameworks_libraries": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "Scikit-learn", "FastAPI", "Streamlit"],
+    "data_engineering": ["Databricks", "Apache Airflow", "MLflow", "ML Ops", "ETL/ELT Pipelines", "Data Wrangling", "Feature Engineering"],
+    "ai_ml": ["Machine Learning", "Supervised Learning", "Unsupervised Learning", "NLP", "LLM Fine-tuning", "Prompt Engineering", "Generative AI", "AI Agents", "LLMs", "SLMs"],
+    "ai_tools_frameworks": ["OpenAI API", "CrewAI", "AutoGen", "ChromaDB", "LangChain", "Groq API", "ChatGPT", "Claude", "Grok", "DeepSeek", "Blackbox AI"],
+    "databases": ["MySQL", "SQL Workbench", "DBWeaver", "Vector Databases (ChromaDB)"],
+    "cloud_devops": ["AWS", "Azure", "GitLab CI/CD", "GitHub", "Jira", "Docker (basics)"],
+    "tools_ide": ["VS Code", "Google Colab", "Jupyter Notebook", "Microsoft Office 365"],
+    "statistical_analytics": ["Statistical Analysis", "Exploratory Data Analysis (EDA)", "Data Visualization"]
+  },
+  "education": [
+    {
+      "degree": "B.Tech – Electronics and Computer Engineering",
+      "institution": "SRM Institute of Science and Technology (SRMIST)",
+      "year": "2023",
+      "type": "undergraduate"
+    },
+    {
+      "degree": "PGP – Data Science and Engineering",
+      "institution": "Great Learning",
+      "year": "2024",
+      "type": "postgraduate"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Databricks Certified Data Engineer Associate",
+      "issuer": "Databricks",
+      "issued": "Mar 2025",
+      "expires": "Mar 2027",
+      "credential_url": "https://sai-lingesh-ag.github.io/certificates/"
+    },
+    {
+      "name": "Databricks Certified Generative AI Engineer Associate",
+      "issuer": "Databricks",
+      "issued": "Dec 2025",
+      "expires": "Dec 2027",
+      "credential_url": "https://sai-lingesh-ag.github.io/certificates/"
+    },
+    {
+      "name": "Databricks Accredited Generative AI Fundamentals",
+      "issuer": "Databricks",
+      "issued": "May 2025",
+      "expires": "May 2027",
+      "credential_url": "https://sai-lingesh-ag.github.io/certificates/"
+    },
+  ],
+  "stats": {
+    "years_experience": 1.4,
+    "projects_completed": 10,
+    "certifications_count": 6,
+    "technologies_count": 40
+  }
+}
