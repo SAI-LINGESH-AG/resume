@@ -140,8 +140,6 @@
     }
 
     .download-btn svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
-    .btn-pdf { background: var(--accent2); color: #fff; }
-    .btn-pdf:hover { opacity: 0.87; }
     .btn-doc { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
     .btn-doc:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -423,20 +421,17 @@
   </div>
   <div class="topbar-right">
     <div class="version-selector" role="group" aria-label="Resume version">
-      <button class="ver-btn active" data-version="de" onclick="switchVersion('de')">Data Engineer</button>
-      <button class="ver-btn" data-version="swe" onclick="switchVersion('swe')">Software Engineer</button>
-      <button class="ver-btn" data-version="ds" onclick="switchVersion('ds')">Data Science</button>
-      <button class="ver-btn" data-version="ai" onclick="switchVersion('ai')">Artificial Intelligence</button>
+      <button class="ver-btn active" data-version="de" onclick="switchVersion('de')">Data Eng</button>
+      <button class="ver-btn" data-version="swe" onclick="switchVersion('swe')">SWE</button>
+      <button class="ver-btn" data-version="ds" onclick="switchVersion('ds')">Data Sci</button>
+      <button class="ver-btn" data-version="ai" onclick="switchVersion('ai')">AI / LLM</button>
     </div>
     <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">
       <svg id="iconMoon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
       <svg id="iconSun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
-    <button class="download-btn btn-pdf" onclick="downloadPDF()">
-      <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zM4 18h16v2H4v-2z"/></svg>PDF
-    </button>
-    <button class="download-btn btn-doc" onclick="downloadDOCX()">
-      <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zM4 18h16v2H4v-2z"/></svg>DOCX
+    <button class="download-btn btn-doc" onclick="downloadDOCX()" aria-label="Download Word resume">
+      <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zM4 18h16v2H4v-2z"/></svg>Download DOCX
     </button>
   </div>
 </nav>
@@ -540,7 +535,7 @@
       <div class="hero-stats">
         <div class="stat-card"><div class="stat-num">${s.years_experience}+</div><div class="stat-label">Years</div></div>
         <div class="stat-card"><div class="stat-num">${s.projects_completed}+</div><div class="stat-label">Projects</div></div>
-        <div class="stat-card"><div class="stat-num">${s.certifications_count}+</div><div class="stat-label">Certificates</div></div>
+        <div class="stat-card"><div class="stat-num">${s.certifications_count}+</div><div class="stat-label">Certs</div></div>
         <div class="stat-card"><div class="stat-num">${s.technologies_count}+</div><div class="stat-label">Skills</div></div>
       </div>
     </div>`;
@@ -670,52 +665,54 @@
     localStorage.setItem('theme', next);
   }
 
-  // ── BUILD CLEAN RESUME DOCUMENT ──
-  function buildResumeDoc() {
+  // ── DOWNLOAD DOCX ──
+  function downloadDOCX() {
+    if (!resumeData) return;
     const p  = resumeData.personal;
     const v  = resumeData.versions[currentVersion];
     const sk = resumeData.skills;
-    const bulletsKey = 'bullets_' + currentVersion;
+    const bk = 'bullets_' + currentVersion;
     const projects = resumeData.projects.filter(pr => pr.tags.includes(currentVersion));
-    const skillOrder = v.skill_order;
 
-    const skillsHTML = skillOrder.map(key => {
+    // Skills — dynamic per version using skill_order and top_skills
+    const skillsHTML = v.skill_order.map(key => {
       if (!sk[key] || !sk[key].length) return '';
-      return `<p style="margin:0 0 5pt;font-size:10.5pt;line-height:1.55;text-align:left;">
-        <strong style="color:#1a3f5c;">${CAT_LABELS[key]}:</strong> ${sk[key].join(', ')}</p>`;
+      return `<p style="margin:0 0 5pt;font-size:10.5pt;line-height:1.55;">` +
+        `<strong style="color:#1a3f5c;">${CAT_LABELS[key]}:</strong> ${sk[key].join(', ')}</p>`;
     }).join('');
 
+    // Experience — version-specific bullets
     const expHTML = resumeData.experience.map(job => {
-      const bullets = job[bulletsKey] || job.bullets_de || [];
-      return `
-      <div style="margin-bottom:14pt;">
+      const bullets = job[bk] || job.bullets_de || [];
+      return `<div style="margin-bottom:14pt;">
         <table style="width:100%;border-collapse:collapse;margin-bottom:2pt;"><tr>
           <td style="font-size:11.5pt;font-weight:bold;color:#0d0d0d;">${job.role}</td>
-          <td style="text-align:right;font-size:10pt;color:#555;font-family:'Courier New',monospace;white-space:nowrap;">${job.start_date} &ndash; ${job.end_date}</td>
+          <td style="text-align:right;font-size:10pt;color:#555;white-space:nowrap;">${job.start_date} &ndash; ${job.end_date}</td>
         </tr></table>
         <p style="margin:1pt 0 6pt;font-size:10.5pt;color:#1a3f5c;font-weight:600;">${job.company} &bull; ${job.location}</p>
         <ul style="margin:0;padding-left:17pt;">
-          ${bullets.map(b => `<li style="font-size:10.5pt;color:#111;margin-bottom:4pt;line-height:1.5;text-align:justify;">${b}</li>`).join('')}
-        </ul>
-      </div>`;
+          ${bullets.map(b => `<li style="font-size:10.5pt;color:#111;margin-bottom:4pt;line-height:1.5;text-align:justify;mso-text-justify:inter-word;">${b}</li>`).join('')}
+        </ul></div>`;
     }).join('');
 
-    const projHTML = projects.map(pr => `
-      <div style="margin-bottom:14pt;">
+    // Projects — filtered by active version
+    const projHTML = projects.map(pr =>
+      `<div style="margin-bottom:14pt;">
         <table style="width:100%;border-collapse:collapse;margin-bottom:2pt;"><tr>
           <td style="font-size:11pt;font-weight:bold;color:#0d0d0d;">${pr.name}</td>
           <td style="text-align:right;font-size:10pt;color:#555;white-space:nowrap;">${pr.duration}</td>
         </tr></table>
-        <p style="margin:1pt 0 4pt;font-size:10pt;color:#1a3f5c;">Client: ${pr.client} &nbsp;&bull;&nbsp; Role: ${pr.role} &nbsp;&bull;&nbsp; Team: ${pr.team_size}</p>
-        <p style="font-size:10.5pt;color:#222;margin:0 0 5pt;line-height:1.55;text-align:justify;">${pr.description}</p>
+        <p style="margin:1pt 0 4pt;font-size:10pt;color:#1a3f5c;">Client: ${pr.client} &bull; Role: ${pr.role} &bull; Team: ${pr.team_size}</p>
+        <p style="font-size:10.5pt;color:#222;margin:0 0 5pt;line-height:1.55;text-align:justify;mso-text-justify:inter-word;">${pr.description}</p>
         <ul style="margin:0 0 5pt;padding-left:17pt;">
-          ${pr.highlights.map(h => `<li style="font-size:10.5pt;color:#111;margin-bottom:3pt;line-height:1.45;text-align:justify;">${h}</li>`).join('')}
+          ${pr.highlights.map(h => `<li style="font-size:10.5pt;color:#111;margin-bottom:3pt;line-height:1.45;text-align:justify;mso-text-justify:inter-word;">${h}</li>`).join('')}
         </ul>
         <p style="font-size:10pt;color:#444;margin:0;"><strong>Technologies:</strong> ${pr.tech_stack.join(', ')}</p>
       </div>`).join('');
 
-    const eduHTML = resumeData.education.map(e => `
-      <div style="margin-bottom:10pt;">
+    // Education
+    const eduHTML = resumeData.education.map(e =>
+      `<div style="margin-bottom:10pt;">
         <table style="width:100%;border-collapse:collapse;margin-bottom:2pt;"><tr>
           <td style="font-size:11pt;font-weight:bold;color:#0d0d0d;">${e.degree}</td>
           <td style="text-align:right;font-size:10pt;color:#555;">${e.year}</td>
@@ -723,130 +720,51 @@
         <p style="margin:1pt 0 0;font-size:10.5pt;color:#1a3f5c;">${e.institution}</p>
       </div>`).join('');
 
+    // Certifications — using middot instead of em-dash to avoid AI-generated look
     const certHTML = resumeData.certifications.map(c =>
-      `<p style="margin:0 0 5pt;font-size:10.5pt;color:#111;line-height:1.5;">
-        <strong>${c.name}</strong> &mdash; ${c.issuer}, ${c.issued}${c.expires ? ' (Expires: ' + c.expires + ')' : ''}
-      </p>`).join('');
+      `<p style="margin:0 0 5pt;font-size:10.5pt;color:#111;line-height:1.5;">` +
+      `<strong>${c.name}</strong> &nbsp;&middot;&nbsp; ${c.issuer} &nbsp;&middot;&nbsp; ${c.issued}` +
+      `${c.expires ? ' &nbsp;&middot;&nbsp; Expires: ' + c.expires : ''}</p>`
+    ).join('');
 
-    return { p, v, skillsHTML, expHTML, projHTML, eduHTML, certHTML };
-  }
+    // Contact line: no certificates URL, shortened LinkedIn
+    const contactLine = `${p.email} &nbsp;|&nbsp; ${p.phone} &nbsp;|&nbsp; ${p.location} &nbsp;|&nbsp; in/sai-lingesh`;
 
-  // ── HEADING STYLE (shared) ──
-  const HEADING_STYLE = `font-size:10.5pt;font-weight:700;color:#1a3f5c;text-transform:uppercase;
-    letter-spacing:0.08em;border-bottom:1.5px solid #c8d8e8;padding-bottom:3pt;margin:14pt 0 8pt;`;
-
-  // ── DOWNLOAD PDF ──
-  // Opens a clean print window with precise A4 layout
-  function downloadPDF() {
-    if (!resumeData) return;
-    const { p, v, skillsHTML, expHTML, projHTML, eduHTML, certHTML } = buildResumeDoc();
-
-    const html = `<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8"/>
-<title>${p.name} Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Calibri:wght@400;700&display=swap" rel="stylesheet"/>
+    const wordDoc = `<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head><meta charset="UTF-8"/>
+<meta name=ProgId content=Word.Document/>
+<meta name=Generator content="Microsoft Word 15"/>
+<!--[if gte mso 9]><xml><w:WordDocument>
+  <w:View>Print</w:View><w:Zoom>100</w:Zoom><w:DoNotOptimizeForBrowser/>
+</w:WordDocument></xml><![endif]-->
 <style>
-  @page { size: A4; margin: 18mm 20mm 16mm 20mm; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Calibri, 'Segoe UI', Arial, sans-serif; font-size: 10.5pt; color: #0d0d0d; background: #fff; line-height: 1.45; }
-  .name { font-size: 22pt; font-weight: 700; color: #0d0d0d; margin-bottom: 2pt; letter-spacing: -0.01em; }
-  .title { font-size: 12pt; font-weight: 600; color: #1a3f5c; margin-bottom: 5pt; }
-  .contact { font-size: 10pt; color: #444; padding-bottom: 8pt; border-bottom: 2pt solid #1a3f5c; margin-bottom: 2pt; }
-  .contact a { color: #1a3f5c; text-decoration: none; }
-  h2 { ${HEADING_STYLE} display: block; }
-  ul { padding-left: 17pt; }
-  li { margin-bottom: 3pt; text-align: justify; }
-  p { margin: 0; }
-  @media print {
-    body { margin: 0; }
-    h2 { page-break-after: avoid; }
-    div { orphans: 3; widows: 3; }
-  }
-</style></head><body>
-<div class="name">${p.name}</div>
-<div class="title">${v.title}</div>
-<div class="contact">${p.email} &nbsp;|&nbsp; ${p.phone} &nbsp;|&nbsp; ${p.location} &nbsp;|&nbsp; <a href="${p.linkedin}">${p.linkedin}</a> &nbsp;|&nbsp; <a href="${p.portfolio}">${p.portfolio}</a></div>
+  @page Section1 { size:21.0cm 29.7cm; margin:2.0cm 2.2cm 1.8cm 2.2cm; mso-header-margin:0; mso-footer-margin:0; mso-paper-source:0; }
+  div.Section1 { page:Section1; }
+  body { font-family:Calibri,Arial,sans-serif; font-size:10.5pt; color:#0d0d0d; line-height:1.45; }
+  p,li { font-family:Calibri,Arial,sans-serif; margin:0; padding:0; }
+  li { text-align:justify; mso-text-justify:inter-word; }
+  .nm  { font-size:22pt; font-weight:bold; color:#0d0d0d; margin-bottom:2pt; }
+  .ttl { font-size:12pt; font-weight:bold; color:#1a3f5c; margin-bottom:5pt; }
+  .con { font-size:10pt; color:#444; border-bottom:2pt solid #1a3f5c; padding-bottom:6pt; margin-bottom:2pt; }
+  h2   { font-size:10.5pt; font-weight:bold; color:#1a3f5c; text-transform:uppercase; letter-spacing:0.08em;
+         border-bottom:1pt solid #c8d8e8; padding-bottom:2pt; margin:14pt 0 7pt; mso-border-bottom-alt:solid #c8d8e8 .5pt; }
+  .j   { text-align:justify; mso-text-justify:inter-word; }
+  ul   { margin:0; padding-left:18pt; }
+</style></head>
+<body><div class="Section1">
+<p class="nm">${p.name}</p>
+<p class="ttl">${v.title}</p>
+<p class="con">${contactLine}</p>
 <h2>Professional Summary</h2>
-<p style="font-size:10.5pt;color:#111;line-height:1.6;text-align:justify;margin-bottom:4pt;">${v.summary}</p>
+<p class="j" style="font-size:10.5pt;color:#111;line-height:1.6;margin-bottom:4pt;">${v.summary}</p>
 <h2>Work Experience</h2>${expHTML}
 <h2>Technical Skills</h2>${skillsHTML}
 <h2>Projects</h2>${projHTML}
 <h2>Education</h2>${eduHTML}
 <h2>Certifications</h2>${certHTML}
-</body></html>`;
-
-    const win = window.open('', '_blank', 'width=960,height=720,scrollbars=yes');
-    if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
-    win.document.write(html);
-    win.document.close();
-    win.onload = () => setTimeout(() => { win.focus(); win.print(); }, 800);
-  }
-
-  // ── DOWNLOAD DOCX ──
-  // Generates proper Word XML with full text justification
-  function downloadDOCX() {
-    if (!resumeData) return;
-    const { p, v, skillsHTML, expHTML, projHTML, eduHTML, certHTML } = buildResumeDoc();
-
-    // Word XML justification styles injected at top level
-    const wordDoc = `<html xmlns:o="urn:schemas-microsoft-com:office:office"
-      xmlns:w="urn:schemas-microsoft-com:office:word"
-      xmlns="http://www.w3.org/TR/REC-html40">
-<head>
-<meta charset="UTF-8"/>
-<meta name=ProgId content=Word.Document/>
-<meta name=Generator content="Microsoft Word 15"/>
-<!--[if gte mso 9]>
-<xml><w:WordDocument>
-  <w:View>Print</w:View><w:Zoom>100</w:Zoom>
-  <w:DoNotOptimizeForBrowser/>
-</w:WordDocument></xml><![endif]-->
-<style>
-  @page Section1 {
-    size: 21.0cm 29.7cm;
-    margin: 2.0cm 2.2cm 1.8cm 2.2cm;
-    mso-header-margin: 0; mso-footer-margin: 0; mso-paper-source: 0;
-  }
-  div.Section1 { page: Section1; }
-  body { font-family: Calibri, Arial, sans-serif; font-size: 10.5pt; color: #0d0d0d; line-height: 1.45; }
-  p, li { font-family: Calibri, Arial, sans-serif; margin: 0; padding: 0; }
-  p { mso-line-height-rule: exactly; }
-  li { text-align: justify; mso-text-justify: inter-word; }
-  .name { font-size: 22pt; font-weight: bold; color: #0d0d0d; margin-bottom: 2pt; }
-  .title { font-size: 12pt; font-weight: bold; color: #1a3f5c; margin-bottom: 5pt; }
-  .contact { font-size: 10pt; color: #444; border-bottom: 2pt solid #1a3f5c; padding-bottom: 6pt; margin-bottom: 2pt; }
-  h2 { font-size: 10.5pt; font-weight: bold; color: #1a3f5c; text-transform: uppercase;
-       letter-spacing: 0.08em; border-bottom: 1pt solid #c8d8e8; padding-bottom: 2pt;
-       margin: 14pt 0 7pt; mso-border-bottom-alt: solid #c8d8e8 .5pt; }
-  .jsfy { text-align: justify; mso-text-justify: inter-word; }
-  ul { margin: 0; padding-left: 18pt; }
-</style>
-</head>
-<body>
-<div class="Section1">
-<p class="name">${p.name}</p>
-<p class="title">${v.title}</p>
-<p class="contact">${p.email} &nbsp;|&nbsp; ${p.phone} &nbsp;|&nbsp; ${p.location} &nbsp;|&nbsp; ${p.linkedin} &nbsp;|&nbsp; ${p.portfolio}</p>
-
-<h2>Professional Summary</h2>
-<p class="jsfy" style="font-size:10.5pt;color:#111;line-height:1.6;margin-bottom:4pt;">${v.summary}</p>
-
-<h2>Work Experience</h2>
-${expHTML}
-
-<h2>Technical Skills</h2>
-${skillsHTML}
-
-<h2>Projects</h2>
-${projHTML}
-
-<h2>Education</h2>
-${eduHTML}
-
-<h2>Certifications</h2>
-${certHTML}
-</div>
-</body></html>`;
+</div></body></html>`;
 
     const blob = new Blob(['\ufeff', wordDoc], { type: 'application/msword;charset=utf-8' });
     const url  = URL.createObjectURL(blob);
