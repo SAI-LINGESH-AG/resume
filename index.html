@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-  <title>Sai Lingesh R - Data Engineer &amp; AI/LLM Engineer</title>
-  <meta name="description" content="Sai Lingesh R - Data Engineer, AI/LLM Engineer, and ML Practitioner. Specializing in Databricks, PySpark, LLMs, and intelligent data systems." />
+  <title>Sai Lingesh R – Data Engineer &amp; AI/LLM Engineer</title>
+  <meta name="description" content="Sai Lingesh R – Data Engineer, AI/LLM Engineer, and ML Practitioner. Specializing in Databricks, PySpark, LLMs, and intelligent data systems." />
   <meta name="keywords" content="Data Engineer, AI Engineer, ML Engineer, Databricks, PySpark, Python, LLM, Machine Learning, Generative AI, RAG, FastAPI, Streamlit" />
-  <meta property="og:title" content="Sai Lingesh R - Data Engineer &amp; AI Engineer" />
-  <meta property="og:description" content="Portfolio &amp; Resume of Sai Lingesh R - Data Engineering, AI/LLM, Machine Learning." />
+  <meta property="og:title" content="Sai Lingesh R – Data Engineer &amp; AI Engineer" />
+  <meta property="og:description" content="Portfolio &amp; Resume of Sai Lingesh R – Data Engineering, AI/LLM, Machine Learning." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -416,7 +416,7 @@
 <!-- TOPBAR -->
 <nav class="topbar" role="navigation">
   <div class="topbar-left">
-    <a href="#" class="topbar-logo">SL</a>
+    <a href="#" class="topbar-logo" id="topbarInitials">SL</a>
     <span class="open-to-work" id="otwBadge">Open to Work</span>
   </div>
   <div class="topbar-right">
@@ -503,6 +503,7 @@
       btn.classList.toggle('active', btn.dataset.version === currentVersion));
     document.getElementById('otwBadge').style.display =
       resumeData.personal.open_to_work ? '' : 'none';
+    document.getElementById('topbarInitials').textContent = resumeData.personal.initials || resumeData.personal.name.split(' ').map(w=>w[0]).join('');
     const lbl = document.getElementById('downloadLabel');
     if (lbl) lbl.textContent = 'Download ' + resumeData.versions[currentVersion].title + ' DOCX';
 
@@ -739,9 +740,6 @@
 <head><meta charset="UTF-8"/>
 <meta name=ProgId content=Word.Document/>
 <meta name=Generator content="Microsoft Word 15"/>
-<!--[if gte mso 9]><xml><w:WordDocument>
-  <w:View>Print</w:View><w:Zoom>100</w:Zoom><w:DoNotOptimizeForBrowser/>
-</w:WordDocument></xml><![endif]-->
 <style>
   @page Section1 { size:21.0cm 29.7cm; margin:2.0cm 2.2cm 1.8cm 2.2cm; mso-header-margin:0; mso-footer-margin:0; mso-paper-source:0; }
   div.Section1 { page:Section1; }
