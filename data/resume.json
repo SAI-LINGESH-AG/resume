@@ -7,7 +7,7 @@
     "location": "Chennai, Tamil Nadu, India",
     "linkedin": "https://www.linkedin.com/in/sai-lingesh",
     "portfolio": "https://sai-lingesh-ag.github.io/certificates/",
-    "open_to_work": true,
+    "open_to_work": false,
     "availability": "Immediately Available"
   },
 
@@ -60,7 +60,7 @@
     "de": {
       "title": "Data Engineer",
       "tagline": "Building scalable data pipelines, orchestration systems & cloud-native data solutions",
-      "summary": "Results-driven Data Engineer with hands-on experience across the full data engineering lifecycle — designing and deploying scalable ETL/ELT pipelines, automated orchestration frameworks, real-time SLA monitoring systems, and cloud data lakehouses. Proficient in Databricks, PySpark, Apache Airflow, Spark SQL, and AWS. Proven ability to deliver production-grade, cost-optimised, and fully automated data solutions for enterprise clients including Amgen. Holds three Databricks certifications covering Data Engineering and Generative AI.",
+      "summary": "Results driven Data Engineer with hands on experience across the full data engineering lifecycle designing and deploying scalable ETL/ELT pipelines, automated orchestration frameworks, real time SLA monitoring systems, and cloud data lakehouses. Proficient in Databricks, PySpark, Apache Airflow, Spark SQL, and AWS. Proven ability to deliver production grade, cost optimised, and fully automated data solutions for enterprise clients including Amgen. Holds three Databricks certifications covering Data Engineering and Generative AI.",
       "skills": [
         {
           "category": "Languages",
@@ -136,9 +136,9 @@
     },
 
     "swe": {
-      "title": "Software Engineer / Full Stack Developer",
-      "tagline": "Delivering robust full-stack applications, REST APIs & intelligent web-based tools",
-      "summary": "Versatile Software Engineer with production experience building secure, full-stack web applications, REST APIs, and data-intensive backend systems for enterprise clients. Proficient in Python, FastAPI, Streamlit, and MySQL. Skilled in role-based authentication, automated workflows, SMTP notification systems, and GitLab CI/CD pipelines. Consistently delivers clean, modular, well-documented code that is scalable, maintainable, and ready for production deployment.",
+      "title": "Software Engineer",
+      "tagline": "Delivering robust full-stack applications, REST APIs & intelligent web based tools",
+      "summary": "Versatile Software Engineer with production experience building secure, full stack web applications, REST APIs, and data intensive backend systems for enterprise clients. Proficient in Python, FastAPI, Streamlit, and MySQL. Skilled in role based authentication, automated workflows, SMTP notification systems, and GitLab CI/CD pipelines. Consistently delivers clean, modular, well documented code that is scalable, maintainable, and ready for production deployment.",
       "skills": [
         {
           "category": "Languages & Frameworks",
@@ -166,12 +166,12 @@
           "end_date": "Present",
           "type": "Full-time",
           "bullets": [
-            "Designed and developed the CTDA Clinical Trial Operations Assistant (Amgen) using FastAPI with modular Python architecture, supporting both text-based and voice-to-text interactions with role-based access control.",
-            "Built the SOW Generator full-stack application using Python and Streamlit, enabling automated Statement of Work creation from LLM prompt templates, significantly reducing manual documentation time for the RMG team.",
+            "Designed and developed the CTDA Clinical Trial Operations Assistant (Amgen) using FastAPI with modular Python architecture, supporting both text based and voice-to-text interactions with role based access control.",
+            "Built the SOW Generator full stack application using Python and Streamlit, enabling automated Statement of Work creation from LLM prompt templates, significantly reducing manual documentation time for the RMG team.",
             "Engineered the OCX AI Master Build (Amgen) automation framework using custom Python orchestration code, replacing paid tools with a scalable, dynamic, fully maintainable solution.",
-            "Developed secure role-based authentication, session state management, and real-time feedback interfaces across multiple Streamlit-based enterprise web applications.",
-            "Built automated SMTP email notification systems with stakeholder-specific routing and date-range reporting filters across multiple internal tools.",
-            "Implemented GitLab CI/CD workflows for version-controlled automated deployment of pipelines, reducing release cycle time and improving deployment consistency.",
+            "Developed secure role-based authentication, session state management, and real time feedback interfaces across multiple Streamlit based enterprise web applications.",
+            "Built automated SMTP email notification systems with stakeholder-specific routing and date range reporting filters across multiple internal tools.",
+            "Implemented GitLab CI/CD workflows for version controlled automated deployment of pipelines, reducing release cycle time and improving deployment consistency.",
             "Containerised the CTDA chatbot application using Docker for portable, seamless deployment across web and mobile platforms.",
             "Consistently delivered clean, modular, well-documented code with end-to-end testing, debugging, and error tracking across all projects."
           ]
@@ -182,13 +182,13 @@
           "name": "CTDA - Clinical Trial Operations Assistant",
           "client": "Amgen",
           "duration": "Jun 2025 - Jul 2025",
-          "role": "Full-Stack Engineer",
+          "role": "Full Stack Engineer",
           "team_size": "3",
-          "description": "Production-grade chatbot for resolving clinical trial domain queries, built with FastAPI and Streamlit supporting voice-to-text interactions and deployed across web and mobile platforms.",
+          "description": "Production grade chatbot for resolving clinical trial domain queries, built with FastAPI and Streamlit supporting voice-to-text interactions and deployed across web and mobile platforms.",
           "highlights": [
             "Implemented backend using FastAPI with modular Python architecture for scalability",
-            "Designed secure, role-based UI with tab-based navigation and visibility controls",
-            "Supported both text-based and voice-to-text interaction modes",
+            "Designed secure, role based UI with tab based navigation and visibility controls",
+            "Supported both text based and voice-to-text interaction modes",
             "Containerised the full application using Docker for portable deployment across web and mobile platforms",
             "Conducted rigorous testing, debugging, and performance optimisation for reliable responses"
           ],
@@ -241,12 +241,12 @@
           "location": "India",
           "start_date": "Dec 2024",
           "end_date": "Present",
-          "type": "Full-time",
+          "type": "Full time",
           "bullets": [
             "Designed and implemented a robust star schema data model with structured fact and dimension tables for the ANVISA pharmaceutical sales analysis project, enabling scalable analytical reporting.",
-            "Trained and fine-tuned XGBoost and Random Forest predictive models to forecast pharmaceutical sales trends using Databricks, PySpark, and SparkSQL, achieving high-accuracy outputs validated by stakeholders.",
+            "Trained and fine tuned XGBoost and Random Forest predictive models to forecast pharmaceutical sales trends using Databricks, PySpark, and SparkSQL, achieving high accuracy outputs validated by stakeholders.",
             "Built dynamic Power BI dashboards visualising pharmaceutical sales trends, prescriber behaviour, and regional performance, enabling data-driven decisions for business stakeholders.",
-            "Developed a Streamlit-based interactive web application for real-time pharmaceutical sales predictions, bridging the gap between ML models and end-user accessibility.",
+            "Developed a Streamlit based interactive web application for real time pharmaceutical sales predictions, bridging the gap between ML models and end user accessibility.",
             "Orchestrated scalable ETL workflows for data ingestion, transformation, and loading with comprehensive data cleansing, validation, and quality checks to ensure accuracy.",
             "Applied exploratory data analysis (EDA) to identify key entities, metrics, and relationships within complex pharmaceutical datasets.",
             "Leveraged MLflow for model tracking, parameter logging, and experiment management across ML projects.",
@@ -261,7 +261,7 @@
           "duration": "Mar 2025 - Apr 2025",
           "role": "Data Scientist",
           "team_size": "1",
-          "description": "End-to-end pharmaceutical sales analysis and forecasting system using XGBoost and Power BI dashboards with a Streamlit-based prediction interface.",
+          "description": "End to end pharmaceutical sales analysis and forecasting system using XGBoost and Power BI dashboards with a Streamlit-based prediction interface.",
           "highlights": [
             "Designed star schema data model with fact and dimension tables enabling scalable analytical reporting",
             "Trained XGBoost and Random Forest models to forecast pharmaceutical sales, achieving high-accuracy outputs validated by stakeholders",
@@ -276,8 +276,8 @@
 
     "ai": {
       "title": "AI / LLM Engineer",
-      "tagline": "Designing production-grade AI agents, RAG pipelines & generative AI applications",
-      "summary": "Innovative AI/LLM Engineer with proven production experience delivering conversational AI systems, retrieval-augmented generation (RAG) pipelines, agentic AI workflows, and generative AI applications for Amgen. Proficient in OpenAI, LangChain, LangGraph, ChromaDB, FastAPI, and AWS Bedrock. Holds three Databricks certifications in Generative AI and Data Engineering. Passionate about building intelligent, low-latency AI solutions that solve real-world enterprise problems.",
+      "tagline": "Designing production grade AI agents, RAG pipelines & generative AI applications",
+      "summary": "Innovative AI/LLM Engineer with proven production experience delivering conversational AI systems, retrieval augmented generation (RAG) pipelines, agentic AI workflows, and generative AI applications for Amgen. Proficient in OpenAI, LangChain, LangGraph, ChromaDB, FastAPI, and AWS Bedrock. Holds three Databricks certifications in Generative AI and Data Engineering. Passionate about building intelligent, low-latency AI solutions that solve real-world enterprise problems.",
       "skills": [
         {
           "category": "AI & LLM",
@@ -305,8 +305,8 @@
           "end_date": "Present",
           "type": "Full-time",
           "bullets": [
-            "Designed and implemented the CTDA Clinical Trial Operations Assistant (Amgen), a production-grade RAG chatbot using Phi-3-mini SLM, Groq API, ChromaDB, and pgvector for efficient vector search and precise domain-specific responses sourced from ClinicalTrials.gov.",
-            "Developed and orchestrated AI agent workflows for QuerySense (Amgen) using AutoGen, CrewAI, LangGraph, and LangChain to enable automated, context-aware SQL query refinement driven by Generative AI.",
+            "Designed and implemented the CTDA Clinical Trial Operations Assistant (Amgen), a production grade RAG chatbot using Phi-3-mini SLM, Groq API, ChromaDB, and pgvector for efficient vector search and precise domain specific responses sourced from ClinicalTrials.gov.",
+            "Developed and orchestrated AI agent workflows for QuerySense (Amgen) using AutoGen, CrewAI, LangGraph, and LangChain to enable automated, context aware SQL query refinement driven by Generative AI.",
             "Integrated OpenAI GPT with Python and FastAPI for QuerySense to streamline complex SQL query enhancement processes with clean architecture and external configuration handling.",
             "Built the SOW Generator using Google Gemini and advanced prompt engineering strategies, delivering accurate, contextually relevant, and professionally structured documents from natural language inputs.",
             "Applied prompt engineering best practices across multiple production GenAI applications including BRD Generator, Source Code Generator, Test Case Generator, and SOW Generator.",
@@ -365,6 +365,5 @@
         }
       ]
     }
-
   }
 }
