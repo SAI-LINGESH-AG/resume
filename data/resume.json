@@ -1,326 +1,370 @@
 {
-  "meta": {
-    "last_updated": "2026-04-01",
-    "default_version": "de",
-    "available_versions": ["de", "swe", "ds", "ai"],
-    "_test_notes": "This is a FICTIONAL test file. Person: Alex Morgan. Used to validate edge cases across all 4 profiles."
-  },
-
   "personal": {
-    "name": "Alex Morgan",
-    "initials": "AM",
-    "email": "alex.morgan@testmail.com",
-    "phone": "9876543210",
-    "location": "Bangalore, Karnataka, India",
-    "linkedin": "https://www.linkedin.com/in/alex-morgan-test",
-    "portfolio": "https://alex-morgan.github.io/certificates/",
+    "name": "Sai Lingesh R",
+    "initials": "SL",
+    "email": "sailingesh0407@gmail.com",
+    "phone": "9698451787",
+    "location": "Chennai, Tamil Nadu, India",
+    "linkedin": "https://www.linkedin.com/in/sai-lingesh",
+    "portfolio": "https://sai-lingesh-ag.github.io/certificates/",
     "open_to_work": true,
-    "availability": "Available from May 2026"
-  },
-
-  "versions": {
-    "de": {
-      "title": "Data Engineer",
-      "tagline": "Architecting high-throughput data pipelines, lakehouses & real-time orchestration systems at enterprise scale",
-      "summary": "Senior Data Engineer with 4 years of hands-on experience designing and operating production-grade data infrastructure across cloud platforms. Specialises in building fault-tolerant ETL/ELT pipelines, automated SLA monitoring frameworks, and scalable data lakehouses on Databricks and Azure. Delivered mission-critical data solutions for clients in pharmaceutical, retail, and financial services sectors. Holds Databricks Certified Data Engineer Professional certification and a strong track record of reducing pipeline costs by 40% through compute optimisation and incremental load strategies.",
-      "skill_order": ["languages", "data_engineering", "cloud_devops", "databases", "frameworks_libraries"],
-      "top_skills": ["Databricks", "PySpark", "Apache Airflow", "Spark SQL", "ETL/ELT Pipelines", "Azure", "AWS", "Delta Lake", "Python", "SQL", "Pipeline Orchestration", "MLflow"]
-    },
-    "swe": {
-      "title": "Software Engineer / Full Stack Developer",
-      "tagline": "Building secure, production-ready full-stack applications, REST APIs & scalable backend systems",
-      "summary": "Full Stack Software Engineer with 4 years of production experience delivering enterprise-grade web applications, microservices, and REST APIs for global clients. Proficient in Python, FastAPI, React, Node.js, MySQL, and PostgreSQL. Experienced in containerisation with Docker, CI/CD automation via GitLab, and building secure role-based authentication systems. Known for writing clean, well-documented, modular code that reduces onboarding time and accelerates team delivery velocity.",
-      "skill_order": ["languages", "frameworks_libraries", "databases", "cloud_devops", "tools_ide"],
-      "top_skills": ["Python", "FastAPI", "React", "Node.js", "MySQL", "PostgreSQL", "Docker", "GitLab CI/CD", "REST APIs", "Microservices", "Role-Based Auth", "Modular Architecture"]
-    },
-    "ds": {
-      "title": "Data Scientist / ML Engineer",
-      "tagline": "Turning complex, high-dimensional datasets into validated predictive models and executive-level business insights",
-      "summary": "Results-driven Data Scientist and ML Engineer with 4 years of experience building and deploying predictive models, conducting advanced statistical analysis, and delivering interactive BI dashboards for C-suite stakeholders. Proficient in XGBoost, LightGBM, Random Forest, and neural network architectures. Experienced in A/B testing frameworks, feature stores, and MLflow-based model lifecycle management. Delivered models that improved forecast accuracy by 28% and reduced churn by 15% for a leading retail client.",
-      "skill_order": ["ai_ml", "frameworks_libraries", "languages", "statistical_analytics", "data_engineering"],
-      "top_skills": ["XGBoost", "LightGBM", "Random Forest", "Feature Engineering", "EDA", "Power BI", "Tableau", "A/B Testing", "MLflow", "Pandas", "Scikit-learn", "Statistical Analysis"]
-    },
-    "ai": {
-      "title": "AI / LLM Engineer",
-      "tagline": "Designing production-grade LLM agents, RAG pipelines & multi-modal generative AI systems for enterprise",
-      "summary": "Innovative AI/LLM Engineer with 4 years of experience delivering production conversational AI systems, multi-agent orchestration pipelines, and retrieval-augmented generation (RAG) applications for Fortune 500 clients. Proficient in OpenAI GPT-4o, Anthropic Claude, Google Gemini, Phi-3-mini SLM, LangGraph, CrewAI, ChromaDB, and pgvector. Deep expertise in prompt engineering, LLM fine-tuning, and agentic workflow design. Built AI systems serving over 10,000 daily active users with sub-300ms response latency.",
-      "skill_order": ["ai_ml", "ai_tools_frameworks", "languages", "frameworks_libraries", "databases"],
-      "top_skills": ["LLMs", "SLMs", "RAG", "Prompt Engineering", "LangGraph", "CrewAI", "AutoGen", "OpenAI API", "Claude API", "Google Gemini", "ChromaDB", "pgvector", "AI Agents", "LLM Fine-tuning"]
-    }
-  },
-
-  "experience": [
-    {
-      "company": "Nexus Analytics & Cloud Solutions Private Limited",
-      "role": "Senior Data Engineer",
-      "location": "Bangalore, India",
-      "start_date": "Jan 2024",
-      "end_date": "Present",
-      "type": "Full-time",
-      "bullets_de": [
-        "Architected and deployed a fully automated multi-brand data pipeline orchestration system on Databricks for a Fortune 500 pharmaceutical client, eliminating 100% dependency on paid orchestration tools and reducing infrastructure costs by 38%.",
-        "Designed dynamic incremental load frameworks using Delta Lake and PySpark, processing only changed records instead of full historical loads and cutting average pipeline execution time from 4 hours to 45 minutes.",
-        "Built a real-time SLA monitoring system categorising 200+ daily pipeline runs as On-Time, Delayed, or Missed SLA with automated SMTP alerts and Confluence-based incident dashboards, reducing mean time to resolution by 60%.",
-        "Engineered a parameterised Apache Airflow DAG framework supporting configurable scheduling across 14 brands and 6 time zones, enabling zero-code onboarding for new business units.",
-        "Optimised 37 critical Spark SQL queries through partition pruning, broadcast joins, and adaptive query execution, achieving a 52% reduction in cluster compute costs on Azure Databricks.",
-        "Implemented idempotent pipeline logic with checkpoint-based recovery, preventing duplicate data ingestion across 8 business unit delta tables across 3 production environments.",
-        "Led end-to-end data validation using 150+ business rules, ensuring 99.97% data accuracy across all pipeline outputs and reducing downstream reporting defects by 80%.",
-        "Prepared comprehensive technical documentation on Confluence including architecture diagrams, runbooks, and data flow maps; conducted 5 knowledge transfer sessions enabling seamless handover."
-      ],
-      "bullets_swe": [
-        "Designed and developed a secure, multi-tenant REST API platform using FastAPI and Python, serving 12 internal teams with role-based access control, JWT authentication, and rate limiting.",
-        "Built a full-stack employee feedback and HR management portal using React, FastAPI, MySQL, and Docker — delivering role-based dashboards, real-time RAG status visualisation, and automated SMTP email workflows.",
-        "Engineered a modular microservices architecture for a client-facing reporting platform, decomposing a 45,000-line monolith into 11 independently deployable services with documented OpenAPI contracts.",
-        "Implemented GitLab CI/CD pipelines with automated unit testing, linting, Docker image builds, and zero-downtime blue-green deployments, reducing release cycle time from 2 weeks to 3 days.",
-        "Built secure password encryption using hashlib with salt-based hashing, bcrypt fallback, and automated credential rotation policies for 3 internal enterprise applications.",
-        "Containerised 8 production applications using Docker Compose and Kubernetes, enabling consistent deployment across development, staging, and production environments with 99.9% uptime.",
-        "Developed comprehensive automated test suites covering unit, integration, and end-to-end tests using pytest and Selenium, achieving 87% code coverage and eliminating 95% of regression defects.",
-        "Maintained detailed API documentation, developer wikis, and onboarding guides reducing new developer ramp-up time from 3 weeks to 5 days."
-      ],
-      "bullets_ds": [
-        "Led the end-to-end development of an XGBoost-based pharmaceutical sales forecasting model, achieving 91.3% accuracy on held-out test data and enabling $2.4M in optimised inventory decisions for the client.",
-        "Engineered a 340-feature dataset through domain-driven feature engineering, recursive feature elimination, and interaction term creation, improving model F1 score by 18% over the baseline.",
-        "Built dynamic Power BI and Tableau dashboards consuming live pipeline data, enabling C-suite stakeholders to monitor sales trends, prescriber behaviour, and regional KPIs with drill-down to SKU level.",
-        "Designed and executed a rigorous A/B testing framework for marketing campaign optimisation, analysing 500,000 user sessions and delivering statistically significant recommendations that increased conversion by 12%.",
-        "Applied advanced EDA techniques including correlation matrices, PCA decomposition, and SHAP value analysis to uncover non-obvious patterns in 15 pharmaceutical datasets totalling 80GB.",
-        "Implemented MLflow experiment tracking, model versioning, and automated retraining pipelines, reducing model deployment time from 3 weeks to 2 days and ensuring full reproducibility.",
-        "Developed a Streamlit-based interactive ML prediction application enabling business analysts to generate real-time forecasts without SQL or Python knowledge, used by 45 non-technical stakeholders daily.",
-        "Delivered monthly model performance reports to executive stakeholders, translating technical metrics into business impact narratives with clear ROI quantification."
-      ],
-      "bullets_ai": [
-        "Designed and deployed a production-grade multi-agent RAG system for pharmaceutical regulatory document queries, using LangGraph orchestration, ChromaDB vector store, and OpenAI GPT-4o, serving 800 daily queries with 94% user satisfaction.",
-        "Engineered a 3-agent LLM pipeline for automated SQL query optimisation (QuerySense) using AutoGen, CrewAI, and LangChain, reducing manual query tuning time by 70% and improving query performance by 52% on average.",
-        "Built the CTDA Clinical Trial Operations Assistant using Phi-3-mini SLM with RAG over ClinicalTrials.gov data, integrating pgvector for semantic search and achieving sub-300ms average response latency at 95th percentile.",
-        "Developed and maintained a prompt engineering framework with structured chain-of-thought templates, few-shot examples, and output validation schemas, improving LLM response accuracy by 34% across 6 production applications.",
-        "Fine-tuned a domain-specific instruction model on 12,000 annotated pharmaceutical Q&A pairs using LoRA adapters, achieving 89% exact-match accuracy on held-out evaluation versus 61% for the base model.",
-        "Containerised all AI applications using Docker with GPU-aware resource allocation, enabling consistent deployment across cloud and on-premise environments with automated health checks.",
-        "Integrated voice-to-text input (Whisper API) and text-to-speech output into the CTDA chatbot, expanding accessibility for 200 non-technical clinical operations staff.",
-        "Established LLM evaluation pipelines using RAGAS, TruLens, and custom rubrics, enabling systematic quality assurance and regression testing for all RAG-based applications."
-      ],
-      "tags": ["de", "swe", "ds", "ai"]
-    },
-    {
-      "company": "DataBridge Technologies",
-      "role": "Data Engineer",
-      "location": "Chennai, India",
-      "start_date": "Aug 2022",
-      "end_date": "Dec 2023",
-      "type": "Full-time",
-      "bullets_de": [
-        "Built and maintained 25+ ETL pipelines ingesting data from REST APIs, SFTP sources, and on-premise Oracle databases into an Azure Data Lake, processing 2TB of data daily.",
-        "Migrated legacy on-premise SQL Server pipelines to Databricks, reducing operational costs by 45% and improving data freshness from daily to near-real-time (15-minute intervals).",
-        "Developed reusable PySpark transformation libraries adopted across 3 data engineering teams, reducing boilerplate code by 60% and standardising error handling patterns.",
-        "Implemented data quality checks using Great Expectations, catching 99.2% of schema violations and null anomalies before data reached downstream consumers."
-      ],
-      "bullets_swe": [
-        "Developed a Python-based internal tooling platform with Flask REST APIs and a React frontend, automating 12 manual data operations workflows and saving 40 engineering hours per week.",
-        "Built and maintained MySQL and PostgreSQL database schemas for 3 client-facing applications, writing optimised stored procedures and indexed queries handling 50,000+ transactions per day.",
-        "Integrated third-party payment and notification APIs (Stripe, Twilio, SendGrid) into enterprise applications with robust error handling, retry logic, and webhook validation.",
-        "Wrote automated integration test suites using pytest-mock and factory_boy, reducing QA cycle time by 35% and enabling confident weekly release cadences."
-      ],
-      "bullets_ds": [
-        "Built a customer churn prediction model using Random Forest and SMOTE oversampling, achieving 84% recall on minority class and enabling proactive retention campaigns that reduced churn by 15%.",
-        "Conducted statistical analysis on A/B test results for 8 product feature experiments, using hypothesis testing, confidence interval calculation, and effect size estimation to guide product decisions.",
-        "Created automated EDA reporting pipelines using Pandas Profiling and custom Matplotlib visualisations, reducing analyst data exploration time from 3 days to 4 hours per new dataset.",
-        "Delivered weekly data quality and model performance dashboards to product and business teams using Power BI, maintaining 100% on-time delivery over 18 months."
-      ],
-      "bullets_ai": [
-        "Built an internal document Q&A chatbot using LangChain, FAISS vector store, and OpenAI GPT-3.5-turbo, reducing time spent searching internal knowledge bases by 65% for a 200-person engineering team.",
-        "Designed prompt templates and system instructions for 4 customer-facing chatbot deployments, improving first-turn resolution rate from 42% to 71% through structured few-shot prompting.",
-        "Evaluated and benchmarked 6 open-source LLMs (Llama 2, Mistral, Falcon, Phi-2) for on-premise deployment, producing a comprehensive cost-accuracy-latency analysis that informed architecture decisions.",
-        "Integrated OpenAI function calling into a data extraction pipeline, automating structured data extraction from 10,000+ unstructured PDF documents with 96% field-level accuracy."
-      ],
-      "tags": ["de", "swe", "ds", "ai"]
-    }
-  ],
-
-  "projects": [
-    {
-      "id": "proj_001",
-      "name": "Project Alpha — Enterprise Pipeline Orchestration (DE Only Tag)",
-      "client": "PharmaCorp Global",
-      "duration": "Jan 2025 - Mar 2026",
-      "team_size": "3-6",
-      "role": "Lead Data Engineer",
-      "description": "EDGE CASE: This project is tagged DE only. It should NOT appear in SWE, DS, or AI profiles. Fully automated Databricks pipeline orchestration system replacing paid tools with custom Python scheduling logic, supporting 20+ brands across 4 regions.",
-      "highlights": [
-        "This bullet is intentionally long to test text wrapping in the DOCX download — it should wrap cleanly across multiple lines without breaking words awkwardly or losing the bullet indentation alignment on the left margin of the document",
-        "Built dynamic incremental Delta Lake loads processing only changed records, cutting daily compute spend by 41%",
-        "Designed idempotent SLA alerting framework with SMTP routing to 6 stakeholder groups based on brand and region",
-        "Engineered parameterised Airflow DAGs supporting zero-code brand onboarding across 4 time zones",
-        "Prepared full Confluence runbook; delivered 3 KT sessions to operations and client teams"
-      ],
-      "tech_stack": ["Databricks", "PySpark", "Delta Lake", "Apache Airflow", "Azure", "Python", "SMTP", "Confluence", "GitLab"],
-      "tags": ["de"]
-    },
-    {
-      "id": "proj_002",
-      "name": "Project Beta — Full Stack HR Portal (SWE Only Tag)",
-      "client": "Internal — Nexus Analytics",
-      "duration": "Mar 2025 - May 2025",
-      "team_size": 2,
-      "role": "Full Stack Engineer",
-      "description": "EDGE CASE: This project is tagged SWE only. Should NOT appear in DE, DS, or AI profiles. Secure employee connect portal with role-based access, real-time feedback capture, RAG status tagging system, and automated email notifications.",
-      "highlights": [
-        "Built secure login with role-based access control (Admin / Manager / Employee) using JWT and bcrypt password hashing",
-        "Developed real-time RAG status dashboard with filter-based reporting and CSV export for HR decision-making",
-        "Implemented automated SMTP email alerts triggered on status changes, reducing manual HR follow-up by 80%",
-        "Short bullet — tests no awkward spacing",
-        "Wrote pytest test suite achieving 83% code coverage across all API endpoints and UI workflows"
-      ],
-      "tech_stack": ["Python", "FastAPI", "React", "MySQL", "Docker", "GitLab CI/CD", "hashlib", "smtplib"],
-      "tags": ["swe"]
-    },
-    {
-      "id": "proj_003",
-      "name": "Project Gamma — Pharma Sales ML Model (DS Only Tag)",
-      "client": "PharmaCorp Global",
-      "duration": "Jun 2025 - Aug 2025",
-      "team_size": 1,
-      "role": "Data Scientist",
-      "description": "EDGE CASE: This project is tagged DS only. Should NOT appear in DE, SWE, or AI profiles. End-to-end pharmaceutical sales forecasting system using XGBoost and Random Forest with Power BI dashboards and a Streamlit prediction interface.",
-      "highlights": [
-        "Designed star schema data model with 6 dimension tables and 2 fact tables enabling sub-second analytical queries on 500M row dataset",
-        "Trained XGBoost ensemble achieving 91.3% forecast accuracy; validated using walk-forward cross-validation across 24 months of sales history",
-        "Built 14-page Power BI dashboard with drill-through from national to SKU level, used daily by 30 business analysts",
-        "Streamlit prediction app deployed internally enabling non-technical users to generate forecasts without SQL knowledge",
-        "Applied SHAP analysis to explain model decisions to regulatory compliance team, securing model approval for production use"
-      ],
-      "tech_stack": ["Python", "XGBoost", "Random Forest", "Scikit-learn", "Pandas", "Power BI", "Streamlit", "MLflow", "Databricks"],
-      "tags": ["ds"]
-    },
-    {
-      "id": "proj_004",
-      "name": "Project Delta — RAG Chatbot System (AI Only Tag)",
-      "client": "MedTech Innovations",
-      "duration": "Sep 2025 - Nov 2025",
-      "team_size": 3,
-      "role": "AI/LLM Engineer",
-      "description": "EDGE CASE: This project is tagged AI only. Should NOT appear in DE, SWE, or DS profiles. Production RAG chatbot for clinical trial regulatory document queries using Phi-3-mini SLM, pgvector, ChromaDB, and FastAPI with voice-to-text support.",
-      "highlights": [
-        "Implemented Phi-3-mini SLM with retrieval-augmented generation over 50,000 clinical trial documents using ChromaDB and pgvector for semantic search",
-        "Achieved sub-300ms p95 response latency under 500 concurrent users through async FastAPI architecture and connection pooling",
-        "Integrated Whisper API voice-to-text enabling hands-free operation for clinical staff in lab environments",
-        "Built role-based UI with tab navigation and document citation display, increasing user trust scores by 34% in post-deployment survey",
-        "Established RAGAS evaluation pipeline tracking faithfulness, answer relevancy, and context precision weekly"
-      ],
-      "tech_stack": ["Python", "Phi-3-mini SLM", "ChromaDB", "pgvector", "FastAPI", "LangChain", "Whisper API", "Docker", "RAG"],
-      "tags": ["ai"]
-    },
-    {
-      "id": "proj_005",
-      "name": "Project Epsilon — AI SQL Optimizer (AI + SWE + DE Tags)",
-      "client": "RetailMax Corporation",
-      "duration": "Oct 2025 - Dec 2025",
-      "team_size": 4,
-      "role": "GenAI & Data Engineer",
-      "description": "EDGE CASE: Tagged AI + SWE + DE (not DS). Should appear in AI, SWE, and DE profiles but NOT in DS profile. Multi-agent AI system that optimises SQL queries using OpenAI GPT-4o, AutoGen, CrewAI, LangGraph, and FastAPI with Spark SQL performance tuning on Databricks.",
-      "highlights": [
-        "Designed 3-agent pipeline: Analyser agent extracts query intent, Optimiser agent rewrites SQL, Validator agent benchmarks performance — reducing manual DBA tuning time by 70%",
-        "Integrated OpenAI GPT-4o with FastAPI for real-time query enhancement with external config management and API key rotation",
-        "Built CrewAI and LangGraph orchestration layer enabling parallel agent execution and conditional workflow branching",
-        "Conducted Spark SQL benchmarking on Databricks identifying 12 critical bottlenecks; applied partition pruning and broadcast join hints achieving 52% average query speedup",
-        "Delivered clean REST API with Swagger documentation, rate limiting, and audit logging consumed by 6 downstream BI teams"
-      ],
-      "tech_stack": ["Python", "OpenAI API", "AutoGen", "CrewAI", "LangGraph", "FastAPI", "Databricks", "Spark SQL", "Docker", "GitLab"],
-      "tags": ["ai", "swe", "de"]
-    },
-    {
-      "id": "proj_006",
-      "name": "Project Zeta — GenAI Document Generator (AI + SWE Tags)",
-      "client": "Nexus Analytics Internal",
-      "duration": "Nov 2025 - Dec 2025",
-      "team_size": 1,
-      "role": "Application Engineer",
-      "description": "EDGE CASE: Tagged AI + SWE only (not DE or DS). Should appear in AI and SWE profiles only. Generative AI powered full-stack application automating Statement of Work, BRD, and test case generation using Google Gemini, Streamlit, and advanced prompt engineering.",
-      "highlights": [
-        "Integrated Google Gemini 1.5 Pro with structured prompt templates generating 98% approval-ready documents on first generation",
-        "Built multi-document type support (SOW, BRD, Test Cases) from a single Streamlit interface with session persistence",
-        "Implemented dotenv-based secure API key management and model parameter externalisation for environment-agnostic deployment",
-        "Reduced average document creation time from 4 hours to 12 minutes, saving the RMG team 160 hours per month",
-        "Applied chain-of-thought prompting with output validation schema ensuring consistent document structure across all generated artefacts"
-      ],
-      "tech_stack": ["Python", "Google Gemini", "Streamlit", "Prompt Engineering", "dotenv", "FastAPI", "Docker"],
-      "tags": ["ai", "swe"]
-    }
-  ],
-
-  "skills": {
-    "languages": ["Python", "SQL", "Spark SQL", "PySpark", "JavaScript", "TypeScript"],
-    "frameworks_libraries": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "Scikit-learn", "XGBoost", "LightGBM", "Random Forest", "FastAPI", "Flask", "React", "Node.js", "Streamlit"],
-    "data_engineering": ["Databricks", "Apache Airflow", "MLflow", "Delta Lake", "ML Ops", "ETL/ELT Pipelines", "Pipeline Orchestration", "Incremental Load Frameworks", "Data Wrangling", "Feature Engineering", "Star Schema Modelling", "Great Expectations"],
-    "ai_ml": ["Machine Learning", "Deep Learning", "Supervised Learning", "Unsupervised Learning", "NLP", "LLM Fine-tuning (LoRA)", "Prompt Engineering", "Generative AI", "AI Agents", "RAG", "LLMs", "SLMs", "A/B Testing", "SHAP Analysis"],
-    "ai_tools_frameworks": ["OpenAI API (GPT-4o)", "Claude API", "Google Gemini", "CrewAI", "AutoGen", "LangGraph", "LangChain", "ChromaDB", "FAISS", "pgvector", "Groq API", "Whisper API", "RAGAS", "TruLens"],
-    "databases": ["MySQL", "PostgreSQL", "SQL Server", "ChromaDB", "FAISS", "pgvector", "Oracle (read)"],
-    "cloud_devops": ["Azure", "AWS", "GCP (basics)", "GitLab CI/CD", "GitHub Actions", "Docker", "Kubernetes (basics)", "Jira", "Confluence"],
-    "tools_ide": ["VS Code", "Power BI", "Tableau", "Google Colab", "Jupyter Notebook", "Postman", "Microsoft Office 365"],
-    "statistical_analytics": ["Statistical Analysis", "Hypothesis Testing", "A/B Testing", "Exploratory Data Analysis (EDA)", "Data Visualization", "Confidence Intervals", "Effect Size Estimation", "Hashlib", "smtplib"]
+    "availability": "Immediately Available"
   },
 
   "education": [
     {
-      "degree": "B.Tech — Computer Science and Engineering",
-      "institution": "Indian Institute of Technology, Bombay (IIT Bombay)",
-      "year": "2022",
-      "type": "undergraduate"
+      "degree": "B.Tech - Electronics and Computer Engineering",
+      "institution": "SRM Institute of Science and Technology (SRMIST)",
+      "year": "2023"
     },
     {
-      "degree": "PGP — Artificial Intelligence and Machine Learning",
-      "institution": "Great Learning in partnership with University of Texas, Austin",
-      "year": "2023",
-      "type": "postgraduate"
+      "degree": "PGP - Data Science and Engineering",
+      "institution": "Great Learning",
+      "year": "2024"
     }
   ],
 
   "certifications": [
     {
-      "name": "Databricks Certified Data Engineer Professional",
+      "name": "Databricks Certified Data Engineer Associate",
       "issuer": "Databricks",
-      "issued": "Feb 2025",
-      "expires": "Feb 2027",
-      "credential_url": "https://alex-morgan.github.io/certificates/"
+      "issued": "Mar 2025",
+      "expires": "Mar 2027",
+      "credential_url": "https://sai-lingesh-ag.github.io/certificates/"
     },
     {
       "name": "Databricks Certified Generative AI Engineer Associate",
       "issuer": "Databricks",
-      "issued": "Nov 2025",
-      "expires": "Nov 2027",
-      "credential_url": "https://alex-morgan.github.io/certificates/"
+      "issued": "Dec 2025",
+      "expires": "Dec 2027",
+      "credential_url": "https://sai-lingesh-ag.github.io/certificates/"
     },
     {
-      "name": "Microsoft Certified: Azure Data Engineer Associate",
-      "issuer": "Microsoft",
-      "issued": "Jun 2024",
-      "expires": "Jun 2026",
-      "credential_url": "https://alex-morgan.github.io/certificates/"
-    },
-    {
-      "name": "AWS Certified Machine Learning Specialty",
-      "issuer": "Amazon Web Services",
-      "issued": "Sep 2024",
-      "expires": null,
-      "credential_url": "https://alex-morgan.github.io/certificates/"
-    },
-    {
-      "name": "Google Professional Machine Learning Engineer",
-      "issuer": "Google Cloud",
-      "issued": "Jan 2025",
-      "expires": "Jan 2027",
-      "credential_url": "https://alex-morgan.github.io/certificates/"
-    },
-    {
-      "name": "100+ Udemy Courses — Python, ML, Cloud, Web Dev",
-      "issuer": "Udemy",
-      "issued": "2021-2025",
-      "expires": null,
-      "credential_url": "https://alex-morgan.github.io/certificates/"
+      "name": "Databricks Accredited Generative AI Fundamentals",
+      "issuer": "Databricks",
+      "issued": "May 2025",
+      "expires": "May 2027",
+      "credential_url": "https://sai-lingesh-ag.github.io/certificates/"
     }
   ],
 
   "stats": {
-    "years_experience": 4,
-    "projects_completed": 20,
-    "certifications_count": 15,
-    "technologies_count": 60
+    "years_experience": 1,
+    "projects_completed": 8,
+    "certifications_count": 10,
+    "technologies_count": 50
+  },
+
+  "profiles": {
+
+    "de": {
+      "title": "Data Engineer",
+      "tagline": "Building scalable data pipelines, orchestration systems & cloud-native data solutions",
+      "summary": "Results-driven Data Engineer with hands-on experience across the full data engineering lifecycle — designing and deploying scalable ETL/ELT pipelines, automated orchestration frameworks, real-time SLA monitoring systems, and cloud data lakehouses. Proficient in Databricks, PySpark, Apache Airflow, Spark SQL, and AWS. Proven ability to deliver production-grade, cost-optimised, and fully automated data solutions for enterprise clients including Amgen. Holds three Databricks certifications covering Data Engineering and Generative AI.",
+      "skills": [
+        {
+          "category": "Languages",
+          "items": ["Python", "SQL", "PySpark", "Spark SQL"]
+        },
+        {
+          "category": "Data Engineering Tools",
+          "items": ["Apache Airflow", "Databricks", "DBWeaver", "AWS Redshift"]
+        },
+        {
+          "category": "Cloud & DevOps",
+          "items": ["AWS", "GitLab", "Confluence", "Jira"]
+        },
+        {
+          "category": "Productivity & IDEs",
+          "items": ["VS Code", "Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "SharePoint", "OneDrive"]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Agilisium Consulting Private Limited",
+          "role": "Data Engineer",
+          "location": "India",
+          "start_date": "Dec 2024",
+          "end_date": "Present",
+          "type": "Full-time",
+          "bullets": [
+            "Designed and implemented fully automated job orchestration and pipeline triggering for the OCX AI Master Build (Amgen), eliminating dependency on paid orchestration tools and enabling zero-code onboarding of new business units and brands.",
+            "Developed dynamic incremental load frameworks on Databricks to process only delta data instead of full historical loads, drastically reducing compute usage and pipeline execution time.",
+            "Built end-to-end health check data pipelines categorising runs as On-Time, Delayed, or Missed SLA, with automated SMTP email alerts to clients and operations teams, ensuring proactive incident response.",
+            "Engineered brand-specific Airflow DAG scheduling with configurable date-time windows, ensuring correct brands are processed on scheduled days with full flexibility for future onboarding.",
+            "Optimised Databricks workloads through compute refactoring and Spark SQL tuning for the QuerySense project (Amgen), achieving significant cluster cost reduction and improved execution efficiency.",
+            "Implemented idempotency logic to prevent duplicate email notifications and duplicate data logging across business unit delta tables, ensuring pipeline reliability.",
+            "Performed end-to-end data validation using business rules and validation logic, ensuring pipeline outputs met stakeholder requirements across multiple enterprise engagements.",
+            "Maintained Confluence technical documentation covering architecture, workflows, and operational guidelines, and conducted knowledge transfer sessions for smooth project handovers."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "name": "OCX AI Master Build - Q3",
+          "client": "Amgen",
+          "duration": "Aug 2025 - Dec 2025",
+          "role": "Data Engineer",
+          "team_size": "2-5",
+          "description": "Fully automated, scalable data pipeline orchestration system built on Databricks for Amgen, eliminating dependency on paid orchestration tools and enabling zero-code onboarding of new business units and brands.",
+          "highlights": [
+            "Designed fully automated job orchestration, pipeline triggering, and dynamic scheduling using custom code with no paid orchestration tools required",
+            "Built dynamic incremental load frameworks processing only delta data, drastically reducing compute usage and execution time",
+            "Implemented weekday-based brand execution logic ensuring only relevant brands are processed on scheduled days",
+            "Developed a robust notification framework with automated email alerts to clients and operations teams based on delta data",
+            "Enforced idempotency logic to prevent duplicate notifications and duplicate data logging across business unit tables",
+            "Performed end-to-end data validation with defined business rules; prepared Confluence documentation and conducted knowledge transfer sessions"
+          ],
+          "tech_stack": ["Databricks", "PySpark", "Spark SQL", "Python", "Apache Airflow", "AWS", "GitLab", "Confluence"]
+        },
+        {
+          "name": "QuerySense - AI-Powered SQL Optimizer",
+          "client": "Amgen",
+          "duration": "Apr 2025 - Jun 2025",
+          "role": "Data Engineer",
+          "team_size": "4",
+          "description": "Generative AI system that optimises complex SQL queries deployed on Databricks with Apache Spark performance tuning.",
+          "highlights": [
+            "Conducted rigorous Spark SQL performance testing on Databricks, applying Apache Spark optimisation techniques to identify and resolve bottlenecks",
+            "Optimised pipeline workloads through compute refactoring, achieving significant cluster cost reduction",
+            "Collaborated with a cross-functional team using an iterative approach to test, validate, and improve accuracy of SQL outputs",
+            "Maintained clean architecture and external configuration handling for scalability and maintainability"
+          ],
+          "tech_stack": ["Databricks", "Spark SQL", "PySpark", "Python", "AWS", "GitLab"]
+        }
+      ]
+    },
+
+    "swe": {
+      "title": "Software Engineer / Full Stack Developer",
+      "tagline": "Delivering robust full-stack applications, REST APIs & intelligent web-based tools",
+      "summary": "Versatile Software Engineer with production experience building secure, full-stack web applications, REST APIs, and data-intensive backend systems for enterprise clients. Proficient in Python, FastAPI, Streamlit, and MySQL. Skilled in role-based authentication, automated workflows, SMTP notification systems, and GitLab CI/CD pipelines. Consistently delivers clean, modular, well-documented code that is scalable, maintainable, and ready for production deployment.",
+      "skills": [
+        {
+          "category": "Languages & Frameworks",
+          "items": ["Python", "FastAPI", "Streamlit", "MySQL"]
+        },
+        {
+          "category": "Cloud & DevOps",
+          "items": ["AWS", "GitLab", "Confluence", "Jira"]
+        },
+        {
+          "category": "IDEs & Notebooks",
+          "items": ["VS Code", "Jupyter Notebook", "Google Colab"]
+        },
+        {
+          "category": "Productivity Tools",
+          "items": ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "SharePoint", "OneDrive"]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Agilisium Consulting Private Limited",
+          "role": "Data Engineer",
+          "location": "India",
+          "start_date": "Dec 2024",
+          "end_date": "Present",
+          "type": "Full-time",
+          "bullets": [
+            "Designed and developed the CTDA Clinical Trial Operations Assistant (Amgen) using FastAPI with modular Python architecture, supporting both text-based and voice-to-text interactions with role-based access control.",
+            "Built the SOW Generator full-stack application using Python and Streamlit, enabling automated Statement of Work creation from LLM prompt templates, significantly reducing manual documentation time for the RMG team.",
+            "Engineered the OCX AI Master Build (Amgen) automation framework using custom Python orchestration code, replacing paid tools with a scalable, dynamic, fully maintainable solution.",
+            "Developed secure role-based authentication, session state management, and real-time feedback interfaces across multiple Streamlit-based enterprise web applications.",
+            "Built automated SMTP email notification systems with stakeholder-specific routing and date-range reporting filters across multiple internal tools.",
+            "Implemented GitLab CI/CD workflows for version-controlled automated deployment of pipelines, reducing release cycle time and improving deployment consistency.",
+            "Containerised the CTDA chatbot application using Docker for portable, seamless deployment across web and mobile platforms.",
+            "Consistently delivered clean, modular, well-documented code with end-to-end testing, debugging, and error tracking across all projects."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "name": "CTDA - Clinical Trial Operations Assistant",
+          "client": "Amgen",
+          "duration": "Jun 2025 - Jul 2025",
+          "role": "Full-Stack Engineer",
+          "team_size": "3",
+          "description": "Production-grade chatbot for resolving clinical trial domain queries, built with FastAPI and Streamlit supporting voice-to-text interactions and deployed across web and mobile platforms.",
+          "highlights": [
+            "Implemented backend using FastAPI with modular Python architecture for scalability",
+            "Designed secure, role-based UI with tab-based navigation and visibility controls",
+            "Supported both text-based and voice-to-text interaction modes",
+            "Containerised the full application using Docker for portable deployment across web and mobile platforms",
+            "Conducted rigorous testing, debugging, and performance optimisation for reliable responses"
+          ],
+          "tech_stack": ["Python", "FastAPI", "Streamlit", "MySQL", "Docker", "GitLab", "AWS"]
+        },
+        {
+          "name": "SOW Generator - GenAI Document Automation",
+          "client": "Agilisium Consulting",
+          "duration": "Jun 2025 - Jul 2025",
+          "role": "Full-Stack Engineer",
+          "team_size": "1",
+          "description": "Full-stack application that automates Statement of Work creation for multiple client accounts using Streamlit with a clean, modular Python backend.",
+          "highlights": [
+            "Built intuitive Streamlit interface with session state management for persistent content display",
+            "Implemented secure environment variable management for API keys and model parameters",
+            "Delivered end-to-end workflow from data input to final document output, significantly reducing manual effort",
+            "Applied clean modular architecture ensuring scalability and maintainability for future account additions"
+          ],
+          "tech_stack": ["Python", "Streamlit", "FastAPI", "MySQL", "GitLab", "AWS"]
+        }
+      ]
+    },
+
+    "ds": {
+      "title": "Data Scientist / ML Engineer",
+      "tagline": "Transforming complex datasets into predictive models, actionable insights & interactive dashboards",
+      "summary": "Analytical Data Scientist and ML Engineer with hands-on experience developing predictive models, performing end-to-end exploratory data analysis, and building interactive dashboards for enterprise clients. Proficient in Python, Pandas, XGBoost, Power BI, and MLflow. Experienced with star schema data modelling, ETL orchestration on Databricks, and delivering ML-powered web applications via Streamlit. Committed to translating raw data into measurable business outcomes.",
+      "skills": [
+        {
+          "category": "Languages & Libraries",
+          "items": ["Python", "Pandas", "XGBoost", "MLflow", "Apache Airflow"]
+        },
+        {
+          "category": "Analytics & Visualisation",
+          "items": ["Power BI", "SQL"]
+        },
+        {
+          "category": "Cloud & DevOps",
+          "items": ["AWS", "GitLab", "Confluence", "Jira"]
+        },
+        {
+          "category": "Productivity & IDEs",
+          "items": ["VS Code", "Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "SharePoint", "OneDrive"]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Agilisium Consulting Private Limited",
+          "role": "Data Engineer",
+          "location": "India",
+          "start_date": "Dec 2024",
+          "end_date": "Present",
+          "type": "Full-time",
+          "bullets": [
+            "Designed and implemented a robust star schema data model with structured fact and dimension tables for the ANVISA pharmaceutical sales analysis project, enabling scalable analytical reporting.",
+            "Trained and fine-tuned XGBoost and Random Forest predictive models to forecast pharmaceutical sales trends using Databricks, PySpark, and SparkSQL, achieving high-accuracy outputs validated by stakeholders.",
+            "Built dynamic Power BI dashboards visualising pharmaceutical sales trends, prescriber behaviour, and regional performance, enabling data-driven decisions for business stakeholders.",
+            "Developed a Streamlit-based interactive web application for real-time pharmaceutical sales predictions, bridging the gap between ML models and end-user accessibility.",
+            "Orchestrated scalable ETL workflows for data ingestion, transformation, and loading with comprehensive data cleansing, validation, and quality checks to ensure accuracy.",
+            "Applied exploratory data analysis (EDA) to identify key entities, metrics, and relationships within complex pharmaceutical datasets.",
+            "Leveraged MLflow for model tracking, parameter logging, and experiment management across ML projects.",
+            "Delivered actionable insights by collaborating closely with stakeholders to validate model outputs and align analytical findings with business objectives."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "name": "ANVISA Pharmaceutical Sales Analysis",
+          "client": "Agilisium Consulting",
+          "duration": "Mar 2025 - Apr 2025",
+          "role": "Data Scientist",
+          "team_size": "1",
+          "description": "End-to-end pharmaceutical sales analysis and forecasting system using XGBoost and Power BI dashboards with a Streamlit-based prediction interface.",
+          "highlights": [
+            "Designed star schema data model with fact and dimension tables enabling scalable analytical reporting",
+            "Trained XGBoost and Random Forest models to forecast pharmaceutical sales, achieving high-accuracy outputs validated by stakeholders",
+            "Built dynamic Power BI dashboards visualising sales trends, prescriber behaviour, and regional performance",
+            "Developed Streamlit-based interactive prediction application for real-time forecasting accessible to non-technical users",
+            "Applied comprehensive EDA and data cleansing to ensure data accuracy before modelling"
+          ],
+          "tech_stack": ["Python", "Pandas", "XGBoost", "MLflow", "Power BI", "Streamlit", "AWS", "GitLab"]
+        }
+      ]
+    },
+
+    "ai": {
+      "title": "AI / LLM Engineer",
+      "tagline": "Designing production-grade AI agents, RAG pipelines & generative AI applications",
+      "summary": "Innovative AI/LLM Engineer with proven production experience delivering conversational AI systems, retrieval-augmented generation (RAG) pipelines, agentic AI workflows, and generative AI applications for Amgen. Proficient in OpenAI, LangChain, LangGraph, ChromaDB, FastAPI, and AWS Bedrock. Holds three Databricks certifications in Generative AI and Data Engineering. Passionate about building intelligent, low-latency AI solutions that solve real-world enterprise problems.",
+      "skills": [
+        {
+          "category": "AI & LLM",
+          "items": ["Python", "RAG", "OpenAI", "LangChain", "LangGraph", "ChromaDB", "Claude", "Grok", "AWS Bedrock"]
+        },
+        {
+          "category": "Frameworks & APIs",
+          "items": ["FastAPI", "SQL", "AWS S3"]
+        },
+        {
+          "category": "Cloud & DevOps",
+          "items": ["AWS", "GitLab", "Confluence", "Jira"]
+        },
+        {
+          "category": "Productivity & IDEs",
+          "items": ["VS Code", "Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "SharePoint", "OneDrive"]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Agilisium Consulting Private Limited",
+          "role": "Data Engineer",
+          "location": "India",
+          "start_date": "Dec 2024",
+          "end_date": "Present",
+          "type": "Full-time",
+          "bullets": [
+            "Designed and implemented the CTDA Clinical Trial Operations Assistant (Amgen), a production-grade RAG chatbot using Phi-3-mini SLM, Groq API, ChromaDB, and pgvector for efficient vector search and precise domain-specific responses sourced from ClinicalTrials.gov.",
+            "Developed and orchestrated AI agent workflows for QuerySense (Amgen) using AutoGen, CrewAI, LangGraph, and LangChain to enable automated, context-aware SQL query refinement driven by Generative AI.",
+            "Integrated OpenAI GPT with Python and FastAPI for QuerySense to streamline complex SQL query enhancement processes with clean architecture and external configuration handling.",
+            "Built the SOW Generator using Google Gemini and advanced prompt engineering strategies, delivering accurate, contextually relevant, and professionally structured documents from natural language inputs.",
+            "Applied prompt engineering best practices across multiple production GenAI applications including BRD Generator, Source Code Generator, Test Case Generator, and SOW Generator.",
+            "Containerised the CTDA chatbot using Docker for scalable, cross-platform deployment supporting both web and mobile environments.",
+            "Integrated secure API key management, environment variable configuration, and session state handling across all GenAI applications to ensure security and maintainability.",
+            "Holds three Databricks certifications: Certified Data Engineer Associate, Certified Generative AI Engineer Associate, and Accredited Generative AI Fundamentals."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "name": "CTDA - Clinical Trial Operations Assistant",
+          "client": "Amgen",
+          "duration": "Jun 2025 - Jul 2025",
+          "role": "AI/LLM Engineer",
+          "team_size": "3",
+          "description": "Production-grade RAG-based chatbot for resolving clinical trial domain queries using LangChain, ChromaDB, FastAPI, and AWS, supporting voice-to-text interactions.",
+          "highlights": [
+            "Built RAG pipeline using LangChain and ChromaDB for semantic retrieval over ClinicalTrials.gov datasets",
+            "Integrated OpenAI and Groq APIs for accurate, low-latency domain-specific responses",
+            "Designed secure, role-based UI with voice-to-text interaction support",
+            "Deployed on AWS with Docker containerisation for scalable cross-platform availability",
+            "Conducted rigorous testing and performance optimisation achieving reliable low-latency responses"
+          ],
+          "tech_stack": ["Python", "LangChain", "ChromaDB", "OpenAI", "FastAPI", "AWS", "Docker", "RAG"]
+        },
+        {
+          "name": "QuerySense - AI-Powered SQL Optimizer",
+          "client": "Amgen",
+          "duration": "Apr 2025 - Jun 2025",
+          "role": "AI/LLM Engineer",
+          "team_size": "4",
+          "description": "Generative AI system that optimises complex SQL queries using OpenAI, LangGraph, and multi-agent orchestration frameworks.",
+          "highlights": [
+            "Designed and implemented prompt engineering strategy to optimise SQL queries using OpenAI GPT",
+            "Integrated OpenAI with Python and FastAPI for scalable, maintainable query enhancement",
+            "Developed and orchestrated AI agent workflows using LangGraph and LangChain for automated query refinement",
+            "Collaborated with a cross-functional team to test, validate, and improve accuracy of AI-optimised SQL outputs"
+          ],
+          "tech_stack": ["Python", "OpenAI", "LangGraph", "LangChain", "FastAPI", "AWS S3", "SQL", "GitLab"]
+        },
+        {
+          "name": "SOW Generator - GenAI Document Automation",
+          "client": "Agilisium Consulting",
+          "duration": "Jun 2025 - Jul 2025",
+          "role": "AI/LLM Engineer",
+          "team_size": "1",
+          "description": "Generative AI powered application automating Statement of Work creation using Claude, Grok, and advanced prompt engineering.",
+          "highlights": [
+            "Leveraged Claude and Grok APIs with advanced prompt engineering to generate accurate SOW documents",
+            "Built intuitive interface with session state management for persistent content display",
+            "Implemented secure AWS-based API key management and environment configuration",
+            "Reduced manual document creation time significantly for the RMG team"
+          ],
+          "tech_stack": ["Python", "Claude", "Grok", "LangChain", "FastAPI", "AWS Bedrock", "AWS S3"]
+        }
+      ]
+    }
+
   }
 }
