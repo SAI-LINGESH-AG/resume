@@ -447,7 +447,7 @@
       renderSkills(profile),
       renderProjects(profile),
       renderEducation(),
-      renderCertifications()
+      renderCertifications(profile)
     ].join('');
   }
 
@@ -545,8 +545,8 @@
     </div>`;
   }
 
-  function renderCertifications() {
-    const items = resumeData.certifications.map(c => `
+  function renderCertifications(profile) {
+    const items = profile.certifications.map(c => `
       <a class="cert-card" href="${c.credential_url}" target="_blank" rel="noopener">
         <div class="cert-issuer">${c.issuer}</div>
         <div class="cert-name">${c.name}</div>
@@ -589,7 +589,7 @@
     const p       = resumeData.personal;
     const profile = resumeData.profiles[currentVersion];
     const edu     = resumeData.education;
-    const certs   = resumeData.certifications;
+    const certs   = profile.certifications;
 
     // Contact line
     const linkedinShort = p.linkedin.replace(/^https?:\/\/(www\.)?/, '');
