@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin - ATS Resume Generator</title>
+  <title>Admin – ATS Resume Generator</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -12,12 +12,11 @@
     :root {
       --bg:#0f0f0d; --surface:#1a1917; --surface2:#242320; --border:#2f2d28;
       --text:#ede9e3; --muted:#8a8780; --accent:#5b9bd5; --accent2:#e05c4e;
-      --green:#4cce82; --yellow:#f0c040;
+      --green:#4cce82; --yellow:#f0c040; --purple:#a78bfa;
       --radius:8px; --font:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
     }
     body { font-family:var(--font); background:var(--bg); color:var(--text); min-height:100vh; font-size:14px; }
 
-    /* LOGIN */
     #loginScreen { min-height:100vh; display:flex; align-items:center; justify-content:center; }
     .login-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:2.5rem; width:100%; max-width:360px; text-align:center; }
     .login-title { font-size:1.1rem; font-weight:600; margin-bottom:0.3rem; }
@@ -28,7 +27,6 @@
     .login-btn:hover { opacity:0.85; }
     .login-error { color:var(--accent2); font-size:12px; margin-top:0.5rem; display:none; }
 
-    /* APP */
     #adminApp { display:none; min-height:100vh; }
     .admin-header { background:var(--surface); border-bottom:1px solid var(--border); padding:0.8rem 2rem; display:flex; align-items:center; justify-content:space-between; }
     .admin-title { font-size:1rem; font-weight:600; }
@@ -38,13 +36,11 @@
     .admin-body { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; padding:1.5rem 2rem; max-width:1400px; margin:0 auto; }
     @media (max-width:900px) { .admin-body { grid-template-columns:1fr; } }
 
-    /* PANELS */
     .panel { background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:1rem; }
     .panel-header { padding:0.9rem 1.2rem; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
     .panel-title { font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); }
     .panel-body { padding:1.2rem; }
 
-    /* FORM */
     label { display:block; font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); margin-bottom:0.4rem; }
     textarea, select, input[type="text"], input[type="password"] { width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:10px 12px; font-size:13px; color:var(--text); font-family:var(--font); outline:none; transition:border-color 0.15s; margin-bottom:1rem; }
     textarea:focus, select:focus, input:focus { border-color:var(--accent); }
@@ -55,39 +51,38 @@
     .api-key-row input { margin-bottom:0; flex:1; font-family:var(--mono); font-size:12px; }
     .hint { font-size:11px; color:var(--muted); margin-bottom:1rem; line-height:1.5; }
 
-    /* BUTTONS */
     .btn { font-size:12px; font-weight:600; padding:8px 14px; border-radius:6px; border:none; cursor:pointer; font-family:var(--font); white-space:nowrap; transition:opacity 0.15s; }
     .btn:hover { opacity:0.85; }
     .btn:disabled { opacity:0.4; cursor:not-allowed; }
     .btn-primary { background:var(--accent); color:#fff; }
     .btn-success { background:var(--green); color:#111; }
-    .btn-danger  { background:var(--accent2); color:#fff; }
     .btn-ghost   { background:var(--surface2); color:var(--text); border:1px solid var(--border); }
     .generate-btn { width:100%; background:var(--accent); color:#fff; border:none; border-radius:var(--radius); padding:12px; font-size:14px; font-weight:700; cursor:pointer; font-family:var(--font); margin-top:0.5rem; transition:opacity 0.15s; }
     .generate-btn:hover { opacity:0.88; }
     .generate-btn:disabled { opacity:0.5; cursor:not-allowed; }
 
-    /* SUGGESTION BANNER */
     .suggestion-banner { display:none; background:var(--surface2); border:1px solid var(--yellow); border-radius:var(--radius); padding:0.9rem 1rem; margin-bottom:1rem; }
     .suggestion-banner.visible { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
     .suggestion-text { font-size:13px; flex:1; line-height:1.5; }
     .suggestion-text strong { color:var(--yellow); }
     .suggestion-actions { display:flex; gap:0.5rem; }
 
-    /* PIPELINE */
-    .pipeline { display:flex; flex-direction:column; gap:0.5rem; margin:0.5rem 0 1rem; }
-    .agent-step { display:flex; align-items:center; gap:0.8rem; padding:0.7rem 1rem; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); font-size:13px; transition:border-color 0.3s; }
+    .pipeline { display:flex; flex-direction:column; gap:0.4rem; margin:0.5rem 0 1rem; }
+    .agent-step { display:flex; align-items:center; gap:0.8rem; padding:0.65rem 1rem; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); font-size:12.5px; transition:border-color 0.3s; }
     .agent-step.running { border-color:var(--yellow); }
     .agent-step.done    { border-color:var(--green); }
+    .agent-step.skipped { border-color:var(--muted); opacity:0.6; }
     .agent-step.error   { border-color:var(--accent2); }
-    .step-num { width:24px; height:24px; border-radius:50%; background:var(--border); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; font-family:var(--mono); }
+    .step-num { width:22px; height:22px; border-radius:50%; background:var(--border); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; flex-shrink:0; font-family:var(--mono); }
     .agent-step.running .step-num { background:var(--yellow); color:#111; }
     .agent-step.done    .step-num { background:var(--green);  color:#111; }
     .agent-step.error   .step-num { background:var(--accent2); color:#fff; }
-    .step-label  { font-weight:500; flex:1; }
-    .step-status { font-size:11px; color:var(--muted); font-family:var(--mono); }
+    .agent-step.reflection .step-num { background:var(--purple); color:#fff; }
+    .step-label  { font-weight:500; flex:1; color:var(--text); font-size:12px; }
+    .step-badge  { font-size:10px; padding:1px 6px; border-radius:3px; font-weight:700; letter-spacing:0.04em; }
+    .badge-new   { background:rgba(167,139,250,0.15); color:var(--purple); border:1px solid rgba(167,139,250,0.3); }
+    .step-status { font-size:10px; color:var(--muted); font-family:var(--mono); white-space:nowrap; }
 
-    /* SCORE */
     .score-section { display:none; margin-bottom:1rem; padding:1rem; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); }
     .score-section.visible { display:block; }
     .score-row   { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; }
@@ -95,22 +90,23 @@
     .score-num   { font-size:1.5rem; font-weight:700; color:var(--green); font-family:var(--mono); }
     .score-bar   { height:6px; background:var(--border); border-radius:3px; overflow:hidden; margin-bottom:0.8rem; }
     .score-fill  { height:100%; background:var(--green); border-radius:3px; transition:width 1.2s ease; width:0; }
-    .kw-section-label { font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:0.4rem; }
-    .keyword-chips { display:flex; flex-wrap:wrap; gap:0.3rem; margin-bottom:0.6rem; }
+    .kw-section-label { font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:0.4rem; margin-top:0.6rem; }
+    .keyword-chips { display:flex; flex-wrap:wrap; gap:0.3rem; margin-bottom:0.3rem; }
     .kw-chip { font-size:11px; padding:2px 8px; border-radius:4px; font-family:var(--mono); }
     .kw-chip.match { background:#0f2a1a; color:var(--green);  border:1px solid #1e5c36; }
     .kw-chip.miss  { background:#2a0f0f; color:var(--accent2); border:1px solid #5c1e1e; }
+    .kw-chip.gap   { background:rgba(240,192,64,0.1); color:var(--yellow); border:1px solid rgba(240,192,64,0.3); }
 
-    /* OUTPUT TABS */
+    .reflection-note { font-size:11px; color:var(--purple); margin-top:0.5rem; padding:0.5rem 0.75rem; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); border-radius:6px; line-height:1.5; }
+
     .tab-bar { display:flex; gap:2px; background:var(--surface2); padding:4px; border-radius:8px; margin-bottom:1rem; }
     .tab-btn { flex:1; font-size:12px; font-weight:600; padding:7px; border:none; border-radius:6px; cursor:pointer; background:transparent; color:var(--muted); font-family:var(--font); transition:all 0.15s; }
     .tab-btn.active { background:var(--surface); color:var(--text); }
     .tab-content { display:none; }
     .tab-content.active { display:block; }
-    .output-box { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; font-size:12.5px; line-height:1.65; color:var(--text); min-height:280px; max-height:480px; overflow-y:auto; white-space:pre-wrap; font-family:var(--mono); }
+    .output-box { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; font-size:12.5px; line-height:1.65; color:var(--text); min-height:260px; max-height:460px; overflow-y:auto; white-space:pre-wrap; font-family:var(--mono); }
     .output-actions { display:flex; gap:0.5rem; margin-top:0.8rem; flex-wrap:wrap; }
 
-    /* TOGGLE */
     .toggle-row { display:flex; justify-content:space-between; align-items:center; padding:0.7rem; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:0.6rem; }
     .toggle-label { font-size:13px; font-weight:500; }
     .toggle-desc  { font-size:11px; color:var(--muted); margin-top:2px; }
@@ -124,7 +120,6 @@
 </head>
 <body>
 
-<!-- LOGIN -->
 <div id="loginScreen">
   <div class="login-card">
     <div class="login-title">Admin Panel</div>
@@ -135,12 +130,11 @@
   </div>
 </div>
 
-<!-- ADMIN APP -->
 <div id="adminApp">
   <div class="admin-header">
     <div>
       <div class="admin-title">Admin Panel &ndash; ATS Resume Generator</div>
-      <div class="admin-sub">3-Agent AI Pipeline &middot; Hallucination-free &middot; Not visible to public</div>
+      <div class="admin-sub">5-Agent AI Pipeline &middot; Reflection &middot; Gap Analysis &middot; Hallucination-free</div>
     </div>
     <button class="logout-btn" onclick="logout()">Logout</button>
   </div>
@@ -168,7 +162,9 @@
         <div class="panel-header"><span class="panel-title">Job Description</span></div>
         <div class="panel-body">
           <label>Paste Job Description</label>
-          <textarea id="jdInput" rows="10" placeholder="Paste the full job description — role title, responsibilities, required skills, nice-to-haves, company context. More detail = better tailoring." oninput="clearSuggestion()"></textarea>
+          <textarea id="jdInput" rows="10"
+            placeholder="Paste the complete job description — role title, responsibilities, required skills, nice-to-haves, company context, tech stack. The more complete, the better the tailoring and ATS score."
+            oninput="clearSuggestion()"></textarea>
 
           <div class="suggestion-banner" id="suggestionBanner">
             <div class="suggestion-text">Best matching profile: <strong id="suggestedProfileName"></strong></div>
@@ -199,7 +195,7 @@
           </div>
 
           <label>Company Name (optional)</label>
-          <input type="text" id="companyName" placeholder="e.g. Google, TCS, Accenture" />
+          <input type="text" id="companyName" placeholder="e.g. Google, TCS, Infosys, Amgen" />
 
           <button class="btn btn-ghost" onclick="analyseJD()" id="analyseBtn" style="width:100%;margin-bottom:0.8rem;">
             Analyse JD &amp; Suggest Profile
@@ -219,12 +215,16 @@
             <button class="toggle on" id="toggle_keywords" onclick="toggleSetting(this)"></button>
           </div>
           <div class="toggle-row">
-            <div><div class="toggle-label">Quantify Achievements</div><div class="toggle-desc">Add metrics where logically implied</div></div>
+            <div><div class="toggle-label">Quantify Achievements</div><div class="toggle-desc">Strengthen bullets with metrics where implied</div></div>
             <button class="toggle on" id="toggle_quantify" onclick="toggleSetting(this)"></button>
           </div>
           <div class="toggle-row">
             <div><div class="toggle-label">Include All Projects</div><div class="toggle-desc">Off = most JD-relevant projects only</div></div>
             <button class="toggle" id="toggle_allprojects" onclick="toggleSetting(this)"></button>
+          </div>
+          <div class="toggle-row">
+            <div><div class="toggle-label">Strict Reflection Mode</div><div class="toggle-desc">Reflection agent self-corrects up to 2 passes</div></div>
+            <button class="toggle on" id="toggle_reflection" onclick="toggleSetting(this)"></button>
           </div>
         </div>
       </div>
@@ -234,27 +234,39 @@
     <div>
       <div class="panel">
         <div class="panel-header">
-          <span class="panel-title">Agent Pipeline</span>
+          <span class="panel-title">5-Agent Pipeline</span>
           <span id="pipelineStatus" style="font-size:11px;color:var(--muted)">Waiting</span>
         </div>
         <div class="panel-body">
           <div class="pipeline">
             <div class="agent-step" id="step1">
               <div class="step-num" id="step1num">1</div>
-              <div class="step-label">JD Analyser &mdash; Extract keywords, skills &amp; requirements</div>
+              <div class="step-label">JD Analyser &amp; Gap Mapper</div>
               <div class="step-status" id="step1status">Idle</div>
             </div>
             <div class="agent-step" id="step2">
               <div class="step-num" id="step2num">2</div>
-              <div class="step-label">Resume Tailor &mdash; Match profile to JD, no hallucination</div>
+              <div class="step-label">Resume Tailor &mdash; Gap-aware, hallucination-free</div>
               <div class="step-status" id="step2status">Waiting</div>
+            </div>
+            <div class="agent-step" id="step25">
+              <div class="step-num" id="step25num">R</div>
+              <div class="step-label">Reflection &amp; Bullet Strength Validator <span class="step-badge badge-new">NEW</span></div>
+              <div class="step-status" id="step25status">Waiting</div>
             </div>
             <div class="agent-step" id="step3">
               <div class="step-num" id="step3num">3</div>
-              <div class="step-label">Cover Letter Writer &mdash; Personalised, keyword-matched</div>
+              <div class="step-label">Summary Optimiser &mdash; ATS keyword density <span class="step-badge badge-new">NEW</span></div>
               <div class="step-status" id="step3status">Waiting</div>
             </div>
+            <div class="agent-step" id="step4">
+              <div class="step-num" id="step4num">4</div>
+              <div class="step-label">Cover Letter Writer &mdash; Keyword-matched</div>
+              <div class="step-status" id="step4status">Waiting</div>
+            </div>
           </div>
+
+          <div id="reflectionNote" class="reflection-note" style="display:none;"></div>
 
           <div class="score-section" id="scoreSection">
             <div class="score-row">
@@ -264,8 +276,11 @@
             <div class="score-bar"><div class="score-fill" id="scoreFill"></div></div>
             <div class="kw-section-label">Matched Keywords</div>
             <div class="keyword-chips" id="matchedChips"></div>
-            <div class="kw-section-label" style="margin-top:0.5rem;">Missing Keywords</div>
+            <div class="kw-section-label">Missing Keywords</div>
             <div class="keyword-chips" id="missedChips"></div>
+            <div class="kw-section-label">Skills Gap Report <span class="step-badge badge-new" style="margin-left:4px;">NEW</span></div>
+            <div class="keyword-chips" id="gapChips"></div>
+            <div id="gapNote" style="font-size:11px;color:var(--muted);margin-top:0.4rem;"></div>
           </div>
         </div>
         <div class="status-bar" id="statusBar">Ready. Paste a JD and click Generate.</div>
@@ -277,7 +292,7 @@
           <div class="tab-bar">
             <button class="tab-btn active" onclick="switchTab('resume')">Resume Preview</button>
             <button class="tab-btn"        onclick="switchTab('cover')">Cover Letter</button>
-            <button class="tab-btn"        onclick="switchTab('keywords')">Keywords</button>
+            <button class="tab-btn"        onclick="switchTab('keywords')">Keywords &amp; Gaps</button>
           </div>
 
           <div class="tab-content active" id="tab_resume">
@@ -315,9 +330,10 @@
   let tailoredJSON = null;
   let coverText    = '';
   let suggestedKey = null;
-  let settings     = { keywords: true, quantify: true, allprojects: false };
+  let reflectionLog = [];
+  let settings = { keywords:true, quantify:true, allprojects:false, reflection:true };
 
-  // AUTH
+  // ── AUTH ──
   function login() {
     const pw = document.getElementById('pwInput').value;
     if (pw === ADMIN_PASSWORD) {
@@ -340,7 +356,7 @@
 
   function saveApiKey() {
     apiKey = document.getElementById('apiKeyInput').value.trim();
-    if (apiKey) { sessionStorage.setItem('adminApiKey', apiKey); updateApiStatus(); setStatus('API key saved for this session.'); }
+    if (apiKey) { sessionStorage.setItem('adminApiKey', apiKey); updateApiStatus(); setStatus('API key saved.'); }
   }
 
   function updateApiStatus() {
@@ -359,13 +375,13 @@
       const res = await fetch('../data/resume.json');
       if (!res.ok) throw new Error('HTTP ' + res.status);
       resumeData = await res.json();
-      setStatus('Resume data loaded. ' + Object.keys(resumeData.profiles).length + ' profiles available.');
+      setStatus('Resume data loaded — ' + Object.keys(resumeData.profiles).length + ' profiles available.');
     } catch(e) { setStatus('Could not load resume.json: ' + e.message); }
   }
 
   function toggleSetting(btn) {
     btn.classList.toggle('on');
-    settings[btn.id.replace('toggle_', '')] = btn.classList.contains('on');
+    settings[btn.id.replace('toggle_','')] = btn.classList.contains('on');
   }
 
   function switchTab(tab) {
@@ -375,20 +391,22 @@
     document.getElementById('tab_' + tab).classList.add('active');
   }
 
-  function setStep(n, state, status) {
-    document.getElementById('step' + n).className = 'agent-step ' + state;
-    document.getElementById('step' + n + 'num').textContent = state === 'done' ? 'OK' : state === 'error' ? 'X' : n;
-    document.getElementById('step' + n + 'status').textContent = status;
+  function setStep(id, state, status) {
+    const el = document.getElementById(id);
+    el.className = 'agent-step ' + state + (id === 'step25' ? ' reflection' : '');
+    const num = document.getElementById(id + 'num');
+    num.textContent = state === 'done' ? 'OK' : state === 'error' ? 'X' : (id === 'step25' ? 'R' : id.replace('step',''));
+    document.getElementById(id + 'status').textContent = status;
   }
 
   function setStatus(msg) { document.getElementById('statusBar').textContent = msg; }
   function setPipelineStatus(msg) { document.getElementById('pipelineStatus').textContent = msg; }
 
-  async function callOpenAI(messages, maxTokens) {
+  async function callOpenAI(messages, maxTokens, temp) {
     const res = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
-      body: JSON.stringify({ model: 'gpt-4o', max_tokens: maxTokens, temperature: 0.2, messages })
+      headers: { 'Content-Type':'application/json', 'Authorization':'Bearer ' + apiKey },
+      body: JSON.stringify({ model:'gpt-4o', max_tokens:maxTokens, temperature:temp||0.2, messages })
     });
     if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || 'OpenAI error'); }
     return (await res.json()).choices[0].message.content;
@@ -399,35 +417,30 @@
     catch(e) { return null; }
   }
 
-  // ANALYSE JD AND SUGGEST PROFILE
+  // ── ANALYSE JD ──
   async function analyseJD() {
     if (!apiKey) { alert('Please save your OpenAI API key first.'); return; }
     const jd = document.getElementById('jdInput').value.trim();
     if (!jd)   { alert('Please paste a job description first.'); return; }
     if (!resumeData) { alert('Resume data not loaded.'); return; }
-
     const btn = document.getElementById('analyseBtn');
     btn.disabled = true; btn.textContent = 'Analysing...';
-    setStatus('Analysing JD to suggest best profile match...');
-
+    setStatus('Analysing JD for best profile match...');
     try {
-      const profileNames = Object.entries(resumeData.profiles)
-        .map(([k,v]) => k + ': ' + v.title).join(', ');
-
+      const names = Object.entries(resumeData.profiles).map(([k,v]) => k+': '+v.title).join(', ');
       const raw = await callOpenAI([
-        { role: 'system', content: 'You are a career advisor. Return ONLY valid JSON, no markdown.' },
-        { role: 'user', content: `Which profile best matches this JD?\nProfiles: ${profileNames}\n\nReturn: {"best_profile_key":"de|swe|ds|ai","reason":"one sentence","confidence":"high|medium|low"}\n\nJD:\n${jd}` }
-      ], 200);
-
+        { role:'system', content:'Return ONLY valid JSON, no markdown.' },
+        { role:'user',   content:`Which profile best matches this JD?\nProfiles: ${names}\nReturn: {"best_profile_key":"de|swe|ds|ai","reason":"one sentence","confidence":"high|medium|low"}\nJD:\n${jd}` }
+      ], 200, 0.1);
       const result = parseJSON(raw);
       if (result && resumeData.profiles[result.best_profile_key]) {
         suggestedKey = result.best_profile_key;
-        document.getElementById('suggestedProfileName').textContent =
-          resumeData.profiles[suggestedKey].title + ' (' + (result.confidence || 'high') + ' confidence)';
+        const title = resumeData.profiles[suggestedKey].title;
+        document.getElementById('suggestedProfileName').textContent = title + ' (' + (result.confidence||'high') + ' confidence)';
         document.getElementById('suggestionBanner').classList.add('visible');
-        setStatus(result.reason || 'Profile suggestion ready.');
+        setStatus(result.reason || 'Suggestion ready.');
       } else {
-        setStatus('Could not determine best profile. Please select manually.');
+        setStatus('Could not determine best profile — please select manually.');
       }
     } catch(e) { setStatus('Analysis failed: ' + e.message); }
     finally { btn.disabled = false; btn.textContent = 'Analyse JD & Suggest Profile'; }
@@ -437,68 +450,51 @@
     if (suggestedKey) document.getElementById('targetRole').value = suggestedKey;
     dismissSuggestion();
   }
+  function dismissSuggestion() { document.getElementById('suggestionBanner').classList.remove('visible'); }
+  function clearSuggestion()   { document.getElementById('suggestionBanner').classList.remove('visible'); suggestedKey = null; }
 
-  function dismissSuggestion() {
-    document.getElementById('suggestionBanner').classList.remove('visible');
-  }
-
-  function clearSuggestion() {
-    document.getElementById('suggestionBanner').classList.remove('visible');
-    suggestedKey = null;
-  }
-
-  // BUILD PROFILE CONTEXT — reads strictly from resume.json
+  // ── BUILD PROFILE CONTEXT ──
   function buildProfileContext(profileKey) {
     const profile = resumeData.profiles[profileKey];
     const p = resumeData.personal;
-
-    const skillsText = profile.skills.map(g => g.category + ': ' + g.items.join(', ')).join('\n');
-
-    const expText = profile.experience.map(job =>
-      'Role: ' + job.role + ' | Company: ' + job.company + ' | ' + job.start_date + ' to ' + job.end_date + '\n' +
-      job.bullets.map(b => '  - ' + b).join('\n')
+    const skillsText  = profile.skills.map(g => g.category+': '+g.items.join(', ')).join('\n');
+    const expText     = profile.experience.map(job =>
+      'Role: '+job.role+' | Company: '+job.company+' | '+job.start_date+' to '+job.end_date+'\n'+
+      job.bullets.map(b=>'  - '+b).join('\n')
     ).join('\n\n');
-
-    const projText = profile.projects.map(pr =>
-      'Project: ' + pr.name + ' | Client: ' + pr.client + ' | ' + pr.duration + ' | Role: ' + pr.role + ' | Team: ' + pr.team_size + '\n' +
-      'Description: ' + pr.description + '\n' +
-      pr.highlights.map(h => '  - ' + h).join('\n') + '\n' +
-      'Tech Stack: ' + pr.tech_stack.join(', ')
+    const projText    = profile.projects.map(pr =>
+      'Project: '+pr.name+' | Client: '+pr.client+' | '+pr.duration+' | Role: '+pr.role+' | Team: '+pr.team_size+'\n'+
+      'Description: '+pr.description+'\n'+
+      pr.highlights.map(h=>'  - '+h).join('\n')+'\n'+
+      'Tech Stack: '+pr.tech_stack.join(', ')
     ).join('\n\n');
-
-    const certText = profile.certifications.map(c =>
-      c.name + ' | ' + c.issuer + ' | Issued: ' + c.issued + (c.expires ? ' | Expires: ' + c.expires : '')
+    const certText    = profile.certifications.map(c =>
+      c.name+' | '+c.issuer+' | Issued: '+c.issued+(c.expires?' | Expires: '+c.expires:'')
     ).join('\n');
-
-    const eduText = resumeData.education.map(e =>
-      e.degree + ' | ' + e.institution + ' | ' + e.year
-    ).join('\n');
-
-    return {
-      profile,
-      contextString:
+    const eduText     = resumeData.education.map(e => e.degree+' | '+e.institution+' | '+e.year).join('\n');
+    const allSkillItems = profile.skills.flatMap(g => g.items);
+    return { profile, allSkillItems, contextString:
 `CANDIDATE: ${p.name}
-PROFILE ROLE: ${profile.title}
+PROFILE: ${profile.title}
 CURRENT SUMMARY: ${profile.summary}
 
-SKILLS — ONLY use these, do not invent:
+AVAILABLE SKILLS (use ONLY these):
 ${skillsText}
 
-EXPERIENCE — rewrite bullets to match JD language, do not invent:
+EXPERIENCE (rewrite bullets to match JD — do not invent):
 ${expText}
 
-PROJECTS — select most relevant, do not invent new ones:
+PROJECTS (select most relevant — do not invent):
 ${projText}
 
 EDUCATION:
 ${eduText}
 
-CERTIFICATIONS — only use these, do not invent:
-${certText}`
-    };
+CERTIFICATIONS (use ONLY these):
+${certText}` };
   }
 
-  // MAIN PIPELINE
+  // ── MAIN PIPELINE ──
   async function runPipeline() {
     if (!apiKey)     { alert('Please save your OpenAI API key first.'); return; }
     const jd = document.getElementById('jdInput').value.trim();
@@ -507,196 +503,318 @@ ${certText}`
 
     const btn = document.getElementById('generateBtn');
     btn.disabled = true; btn.textContent = 'Generating...';
-
     document.getElementById('output_resume').textContent  = 'Generating...';
     document.getElementById('output_cover').textContent   = 'Waiting...';
     document.getElementById('output_keywords').textContent = 'Waiting...';
     document.getElementById('scoreSection').classList.remove('visible');
     document.getElementById('dlResumeBtn').disabled = true;
     document.getElementById('dlCoverBtn').disabled  = true;
-    setStep(1,'','Idle'); setStep(2,'','Waiting'); setStep(3,'','Waiting');
-    tailoredJSON = null; coverText = '';
+    document.getElementById('reflectionNote').style.display = 'none';
+    ['step1','step2','step25','step3','step4'].forEach(id => setStep(id,'','Idle'));
+    tailoredJSON = null; coverText = ''; reflectionLog = [];
+    jdAnalysis = null;
 
     const roleKey   = document.getElementById('targetRole').value;
     const company   = document.getElementById('companyName').value.trim();
     const outFormat = document.getElementById('outputFormat').value;
-    const { profile, contextString } = buildProfileContext(roleKey);
+    const { profile, allSkillItems, contextString } = buildProfileContext(roleKey);
 
     try {
-      // ── AGENT 1: JD ANALYSER ──
-      setStep(1,'running','Analysing...'); setPipelineStatus('Agent 1 of 3...');
-      setStatus('Agent 1: Extracting ATS keywords, skills, and requirements from JD...');
+
+      // ══════════════════════════════════════════════════════
+      // AGENT 1 — JD Analyser + Gap Mapper
+      // Extracts JD requirements AND scores current profile match
+      // ══════════════════════════════════════════════════════
+      setStep('step1','running','Analysing...'); setPipelineStatus('Agent 1 / 5...');
+      setStatus('Agent 1: Extracting keywords, scoring profile match, building gap map...');
+
+      const profileSkillsSummary = profile.skills.map(g => g.category+': '+g.items.join(', ')).join('\n');
 
       const a1raw = await callOpenAI([
-        { role: 'system', content: 'You are a senior ATS specialist. Extract structured data from the job description. Return ONLY valid JSON — no markdown, no backticks.' },
-        { role: 'user', content:
-`Analyse this job description and return a JSON object with exactly these keys:
+        { role:'system', content:'You are a senior ATS specialist and technical recruiter. Extract structured data and score profile match accurately. Return ONLY valid JSON — no markdown, no backticks.' },
+        { role:'user',   content:
+`Analyse this job description and also score how well the candidate profile already matches it.
+
+Return a JSON object with EXACTLY these keys:
 {
   "job_title": "exact title from JD",
   "company": "${company || 'extract from JD or use Not Specified'}",
   "seniority_level": "entry/mid/senior/lead",
   "years_experience_required": "e.g. 2-4 years",
   "must_have_skills": ["every required technical skill explicitly mentioned"],
-  "nice_to_have_skills": ["every optional or preferred skill mentioned"],
+  "nice_to_have_skills": ["every optional skill mentioned"],
   "ats_keywords": ["top 25 most important ATS keywords — tools, frameworks, methodologies, domain terms"],
-  "key_responsibilities": ["up to 8 core responsibilities"],
+  "key_responsibilities": ["up to 8 core responsibilities verbatim from JD"],
   "industry_domain": "e.g. pharmaceutical, fintech, retail",
   "company_tone": "startup/corporate/tech/consulting",
-  "special_requirements": ["certifications required, travel, clearances — empty array if none"]
+  "special_requirements": ["certifications required, clearances — empty if none"],
+  "profile_match_score": 0-100,
+  "profile_gap_analysis": {
+    "strengths": ["skills/experience from profile that directly match JD"],
+    "gaps": ["JD requirements NOT present in candidate profile at all — skills they need to learn"],
+    "partially_covered": ["JD requirements partially covered by profile experience"]
+  },
+  "priority_keywords_for_summary": ["top 8 keywords that MUST appear in the resume summary"]
 }
+
+CANDIDATE PROFILE SKILLS:
+${profileSkillsSummary}
 
 JOB DESCRIPTION:
 ${jd}` }
-      ], 1500);
+      ], 2000, 0.1);
 
-      jdAnalysis = parseJSON(a1raw) || { ats_keywords:[], must_have_skills:[], nice_to_have_skills:[], key_responsibilities:[] };
-      setStep(1,'done','Complete');
-      setStatus('Agent 1 complete — ' + (jdAnalysis.ats_keywords?.length||0) + ' ATS keywords extracted.');
+      jdAnalysis = parseJSON(a1raw) || { ats_keywords:[], must_have_skills:[], nice_to_have_skills:[], key_responsibilities:[], profile_gap_analysis:{strengths:[],gaps:[],partially_covered:[]}, priority_keywords_for_summary:[] };
+      setStep('step1','done','Complete');
+      setStatus('Agent 1 complete — ' + (jdAnalysis.ats_keywords?.length||0) + ' keywords extracted. Profile match: ' + (jdAnalysis.profile_match_score||'N/A') + '%.');
 
-      // ── AGENT 2: RESUME TAILOR ──
-      setStep(2,'running','Tailoring...'); setPipelineStatus('Agent 2 of 3...');
-      setStatus('Agent 2: Tailoring resume content to JD — matching keywords, no hallucination...');
+      // ══════════════════════════════════════════════════════
+      // AGENT 2 — Resume Tailor (gap-aware)
+      // Uses gap map from Agent 1 to prioritise content
+      // ══════════════════════════════════════════════════════
+      setStep('step2','running','Tailoring...'); setPipelineStatus('Agent 2 / 5...');
+      setStatus('Agent 2: Tailoring resume using gap map — matching keywords, no hallucination...');
+
+      const gapContext = jdAnalysis.profile_gap_analysis ?
+        `PROFILE STRENGTHS TO EMPHASISE:\n${(jdAnalysis.profile_gap_analysis.strengths||[]).map(s=>'  + '+s).join('\n')}\n\nPARTIALLY COVERED — ADD CONTEXT:\n${(jdAnalysis.profile_gap_analysis.partially_covered||[]).map(s=>'  ~ '+s).join('\n')}\n\nGENUINE GAPS — DO NOT FABRICATE:\n${(jdAnalysis.profile_gap_analysis.gaps||[]).map(s=>'  - '+s).join('\n')}` : '';
 
       const a2raw = await callOpenAI([
-        { role: 'system', content:
-`You are a world-class ATS resume optimisation specialist. Tailor the candidate's existing profile data to match the job description.
+        { role:'system', content:
+`You are a world-class ATS resume specialist. Tailor the candidate's existing profile to match the JD.
 
 STRICT ANTI-HALLUCINATION RULES:
-1. Only use information that exists in the CANDIDATE PROFILE. Never invent facts.
-2. You MAY rewrite bullets using exact JD language — but the underlying fact must be real and present in the profile.
-3. You MAY reorder sections and prioritise JD-relevant content first.
-4. You MAY add logical metric estimates ONLY if the original bullet already implies a positive outcome.
-5. Never invent job titles, companies, dates, certifications, projects, or technologies not in the profile.
-6. Skills: only include skills from the profile's skills list — reorder to put JD-relevant ones first.
-7. Return ONLY valid JSON — no markdown, no backticks, no explanation text.` },
-        { role: 'user', content:
-`Tailor this candidate's resume for the job description below.
+1. ONLY use facts from the CANDIDATE PROFILE. Never invent companies, dates, projects, certifications, or skills.
+2. You MAY rewrite bullets using exact JD language — but the underlying fact must exist in the profile.
+3. You MAY reorder to put most JD-relevant content first.
+4. For genuine gaps — do NOT fabricate. Leave them absent. The gap report will surface them separately.
+5. Every bullet MUST start with a strong past-tense action verb.
+6. Every bullet SHOULD include an outcome or result where the profile implies one.
+7. Return ONLY valid JSON — no markdown, no backticks.` },
+        { role:'user', content:
+`Tailor this profile for the JD below.
 
 ${contextString}
 
 JD ANALYSIS:
 ${JSON.stringify(jdAnalysis, null, 2)}
 
-SETTINGS:
-- Aggressive keyword matching (use exact JD phrasing in bullets): ${settings.keywords}
-- Quantify achievements (add metrics where logically implied): ${settings.quantify}
-- Include all projects (false = most relevant only): ${settings.allprojects}
+${gapContext}
 
-Return ONLY a JSON object with this exact structure:
+SETTINGS:
+- Aggressive keyword matching: ${settings.keywords}
+- Quantify achievements: ${settings.quantify}
+- Include all projects: ${settings.allprojects}
+
+PRIORITY KEYWORDS FOR SUMMARY: ${(jdAnalysis.priority_keywords_for_summary||[]).join(', ')}
+
+Return a JSON object with EXACTLY this structure:
 {
-  "summary": "3-4 sentence ATS-optimised summary using top JD keywords, grounded in the profile",
+  "summary": "3-4 sentences, must include ALL priority keywords naturally, grounded in profile facts",
   "experience": [
     {
-      "company": "exact company name from profile",
-      "role": "exact role title from profile",
-      "location": "exact location from profile",
-      "start_date": "exact date from profile",
-      "end_date": "exact date from profile",
-      "bullets": ["rewritten bullet starting with action verb, mirroring JD language, fact from profile"]
+      "company": "exact from profile",
+      "role": "exact from profile",
+      "location": "exact from profile",
+      "start_date": "exact from profile",
+      "end_date": "exact from profile",
+      "bullets": ["Action verb + task + outcome. Uses exact JD language. Fact from profile."]
     }
   ],
-  "skills": [
-    { "category": "category name from profile", "items": ["skill1","skill2"] }
-  ],
-  "projects": [
-    {
-      "name": "exact project name",
-      "client": "exact client",
-      "duration": "exact duration",
-      "role": "exact role",
-      "team_size": "exact team size",
-      "description": "rewritten description using JD language",
-      "highlights": ["rewritten highlight using JD keywords"],
-      "tech_stack": ["tech1","tech2"]
-    }
-  ],
-  "education": [
-    { "degree": "exact", "institution": "exact", "year": "exact" }
-  ],
-  "certifications": [
-    { "name": "exact", "issuer": "exact", "issued": "exact", "expires": "exact or null" }
-  ]
+  "skills": [{ "category": "from profile", "items": ["most JD-relevant first"] }],
+  "projects": [{ "name":"exact","client":"exact","duration":"exact","role":"exact","team_size":"exact","description":"rewritten with JD language","highlights":["rewritten with JD keywords"],"tech_stack":["exact"] }],
+  "education": [{ "degree":"exact","institution":"exact","year":"exact" }],
+  "certifications": [{ "name":"exact","issuer":"exact","issued":"exact","expires":"exact or null" }]
 }` }
-      ], 4000);
+      ], 4000, 0.2);
 
       tailoredJSON = parseJSON(a2raw);
-
-      // Fallback to original profile if JSON parse fails
       if (!tailoredJSON) {
-        tailoredJSON = {
-          summary: profile.summary,
-          experience: profile.experience.map(j => ({ ...j })),
-          skills: profile.skills,
-          projects: profile.projects,
-          education: resumeData.education,
-          certifications: profile.certifications
-        };
-        setStatus('Agent 2: Used original profile as fallback (JSON parse issue).');
+        tailoredJSON = { summary:profile.summary, experience:profile.experience.map(j=>({...j})), skills:profile.skills, projects:profile.projects, education:resumeData.education, certifications:profile.certifications };
+        setStatus('Agent 2: JSON parse issue — using original profile as fallback.');
+      }
+
+      setStep('step2','done','Complete');
+      setStatus('Agent 2 complete — resume tailored with gap-aware prioritisation.');
+
+      // ══════════════════════════════════════════════════════
+      // AGENT 2.5 — Reflection + Bullet Strength Validator
+      // Self-corrects the JSON before DOCX is built
+      // ══════════════════════════════════════════════════════
+      if (settings.reflection) {
+        setStep('step25','running','Validating...'); setPipelineStatus('Reflection Agent...');
+        setStatus('Reflection Agent: Validating keyword coverage, bullet strength, and ATS readiness...');
+
+        const currentPreview = buildPreviewText(tailoredJSON);
+        const mustHaveSkills = (jdAnalysis.must_have_skills||[]).join(', ');
+        const priorityKws    = (jdAnalysis.priority_keywords_for_summary||[]).join(', ');
+
+        const a25raw = await callOpenAI([
+          { role:'system', content:
+`You are a ruthless resume quality auditor. Your job is to find and fix weaknesses in a tailored resume JSON before it reaches the candidate.
+
+VALIDATION RULES:
+1. Summary must contain ALL priority keywords naturally — if missing, rewrite the summary.
+2. Every bullet must start with a past-tense action verb — fix any that do not.
+3. Every bullet must have an outcome or result — add "resulting in [positive outcome]" where missing and logically implied.
+4. Top 5 ATS keywords must appear somewhere in the resume — if missing from bullets, weave them in naturally.
+5. Must-have JD skills that exist in the candidate profile must appear in the skills section — reorder if needed.
+6. Skills section must list the most JD-relevant skills first in each category.
+7. NEVER add facts not present in the original resume. Only rewrite, reorder, or strengthen existing content.
+8. Return ONLY valid JSON — no markdown.` },
+          { role:'user', content:
+`Audit and improve this tailored resume JSON.
+
+CURRENT RESUME JSON:
+${JSON.stringify(tailoredJSON, null, 2)}
+
+JD REQUIREMENTS:
+- Priority keywords for summary: ${priorityKws}
+- Must-have skills: ${mustHaveSkills}
+- Top 5 ATS keywords: ${(jdAnalysis.ats_keywords||[]).slice(0,5).join(', ')}
+
+ORIGINAL PROFILE SKILLS (cannot add anything outside this list):
+${allSkillItems.join(', ')}
+
+Return a JSON object with:
+{
+  "issues_found": ["list every issue you found — be specific"],
+  "corrections_made": ["list every correction you made — be specific"],
+  "improved_resume": { ...same structure as input resume JSON, with all corrections applied... }
+}` }
+        ], 4000, 0.15);
+
+        const reflectionResult = parseJSON(a25raw);
+        if (reflectionResult && reflectionResult.improved_resume) {
+          tailoredJSON = reflectionResult.improved_resume;
+          reflectionLog = {
+            issues: reflectionResult.issues_found || [],
+            corrections: reflectionResult.corrections_made || []
+          };
+          const noteEl = document.getElementById('reflectionNote');
+          if (reflectionLog.corrections.length > 0) {
+            noteEl.textContent = 'Reflection Agent made ' + reflectionLog.corrections.length + ' correction(s): ' + reflectionLog.corrections.slice(0,2).join('; ') + (reflectionLog.corrections.length > 2 ? '...' : '.');
+            noteEl.style.display = 'block';
+          }
+          setStep('step25','done','Corrected ' + reflectionLog.corrections.length + ' issue(s)');
+        } else {
+          setStep('step25','done','No issues found');
+        }
+        setStatus('Reflection Agent complete — resume validated and self-corrected.');
+      } else {
+        setStep('step25','skipped','Skipped');
+      }
+
+      // ══════════════════════════════════════════════════════
+      // AGENT 3 — Summary Optimiser
+      // Dedicated pass to maximise ATS keyword density in summary
+      // ══════════════════════════════════════════════════════
+      setStep('step3','running','Optimising...'); setPipelineStatus('Agent 3 / 5...');
+      setStatus('Agent 3: Optimising summary for maximum ATS keyword density...');
+
+      const currentSummary   = tailoredJSON.summary || profile.summary;
+      const summaryKeywords  = (jdAnalysis.priority_keywords_for_summary||[]).concat((jdAnalysis.ats_keywords||[]).slice(0,5));
+
+      const a3raw = await callOpenAI([
+        { role:'system', content:'You are an expert ATS summary writer. Return ONLY the improved summary as plain text — no JSON, no markdown, no labels.' },
+        { role:'user', content:
+`Rewrite this professional summary to maximise ATS keyword density while keeping it natural and compelling.
+
+CURRENT SUMMARY:
+${currentSummary}
+
+KEYWORDS THAT MUST APPEAR NATURALLY: ${[...new Set(summaryKeywords)].join(', ')}
+
+JD ROLE: ${jdAnalysis.job_title || profile.title}
+SENIORITY: ${jdAnalysis.seniority_level || 'mid'}
+INDUSTRY: ${jdAnalysis.industry_domain || 'technology'}
+
+RULES:
+1. Keep 3-4 sentences maximum.
+2. Include ALL listed keywords at least once — naturally, not forced.
+3. Open with the candidate's role title and years of experience.
+4. End with a value proposition — what they deliver, not just what they know.
+5. Do NOT add any facts not in the current summary.
+6. Plain text only — no asterisks, no markdown.` }
+      ], 400, 0.2);
+
+      if (a3raw && a3raw.trim().length > 20) {
+        tailoredJSON.summary = a3raw.trim().replace(/^["']|["']$/g,'');
       }
 
       document.getElementById('output_resume').textContent = buildPreviewText(tailoredJSON);
-      setStep(2,'done','Complete');
-      setStatus('Agent 2 complete — resume tailored and structured successfully.');
+      setStep('step3','done','Complete');
+      setStatus('Agent 3 complete — summary optimised for ATS keyword density.');
 
-      // ── AGENT 3: COVER LETTER WRITER ──
+      // ══════════════════════════════════════════════════════
+      // AGENT 4 — Cover Letter Writer
+      // ══════════════════════════════════════════════════════
       if (outFormat !== 'resume') {
-        setStep(3,'running','Writing...'); setPipelineStatus('Agent 3 of 3...');
-        setStatus('Agent 3: Writing personalised cover letter...');
+        setStep('step4','running','Writing...'); setPipelineStatus('Agent 4 / 5...');
+        setStatus('Agent 4: Writing personalised, keyword-matched cover letter...');
 
-        const topBullets = (tailoredJSON.experience?.[0]?.bullets || []).slice(0,3).join('\n');
+        const topBullets = (tailoredJSON.experience?.[0]?.bullets||[]).slice(0,3).join('\n');
         const topProject = tailoredJSON.projects?.[0];
 
-        const a3raw = await callOpenAI([
-          { role: 'system', content:
-`You are an expert cover letter writer. Write compelling, specific, professional cover letters.
-Rules: Never open with "I am writing to apply". Never use bullet points. Write in flowing, confident prose only.` },
-          { role: 'user', content:
+        const a4raw = await callOpenAI([
+          { role:'system', content:'You are an expert cover letter writer. Write compelling, specific, professional cover letters. Never open with "I am writing to apply". Never use bullet points. Write in flowing confident prose only.' },
+          { role:'user', content:
 `Write a professional cover letter for this candidate.
 
 CANDIDATE: ${resumeData.personal.name}
-ROLE: ${jdAnalysis.job_title || 'the role'}
-COMPANY: ${company || jdAnalysis.company || 'the company'}
+APPLYING FOR: ${jdAnalysis.job_title || 'the role'}
+AT COMPANY: ${company || jdAnalysis.company || 'the company'}
 INDUSTRY: ${jdAnalysis.industry_domain || 'technology'}
-TONE: ${jdAnalysis.company_tone || 'professional'}
+COMPANY TONE: ${jdAnalysis.company_tone || 'professional'}
 
-CANDIDATE SUMMARY:
+OPTIMISED SUMMARY:
 ${tailoredJSON.summary}
 
-TOP EXPERIENCE HIGHLIGHTS:
+STRONGEST EXPERIENCE HIGHLIGHTS:
 ${topBullets}
 
 ${topProject ? `MOST RELEVANT PROJECT:\n${topProject.name} — ${topProject.description}\nKey achievements: ${topProject.highlights.slice(0,2).join('; ')}` : ''}
+
+PROFILE STRENGTHS VS THIS JD:
+${(jdAnalysis.profile_gap_analysis?.strengths||[]).slice(0,3).join('; ')}
 
 MUST-HAVE SKILLS TO ADDRESS: ${(jdAnalysis.must_have_skills||[]).join(', ')}
 CORE RESPONSIBILITIES: ${(jdAnalysis.key_responsibilities||[]).slice(0,4).join('; ')}
 ATS KEYWORDS TO USE NATURALLY: ${(jdAnalysis.ats_keywords||[]).slice(0,10).join(', ')}
 
 INSTRUCTIONS:
-1. Open with a confident, specific hook — reference something real about the company or the problem they are solving
+1. Open with a confident specific hook — reference something real about the company or the specific problem they solve
 2. Paragraph 2: Connect 2 specific achievements to the JD's core requirements — be concrete and factual
-3. Paragraph 3: Show understanding of their needs and how this candidate's skills address them
-4. Close: confident and direct, express readiness for next steps
-5. Length: 3-4 paragraphs, 280-320 words total
+3. Paragraph 3: Show understanding of their specific needs and explain how this candidate's skills address them directly
+4. Closing: confident and direct — express readiness for next steps, no desperation
+5. Length: 3-4 paragraphs, 280-320 words
 6. End with candidate name and contact details
-7. Include at least 6 ATS keywords naturally
+7. Include at least 6 ATS keywords naturally within the letter
 8. No bullet points — flowing paragraphs only` }
-        ], 1200);
+        ], 1200, 0.3);
 
-        coverText = a3raw;
+        coverText = a4raw;
         document.getElementById('output_cover').textContent = coverText;
         document.getElementById('dlCoverBtn').disabled = false;
-        setStep(3,'done','Complete');
+        setStep('step4','done','Complete');
       } else {
-        setStep(3,'done','Skipped');
+        setStep('step4','skipped','Skipped');
         document.getElementById('output_cover').textContent = 'Cover letter skipped (Resume Only selected).';
       }
 
-      // ── ATS SCORE ──
+      // ── ATS SCORE + SKILLS GAP REPORT ──
       const previewText = buildPreviewText(tailoredJSON).toLowerCase();
-      const matched = (jdAnalysis.ats_keywords||[]).filter(kw => previewText.includes(kw.toLowerCase()));
-      const missed  = (jdAnalysis.ats_keywords||[]).filter(kw => !previewText.includes(kw.toLowerCase()));
-      const total   = jdAnalysis.ats_keywords?.length || 0;
-      const score   = total > 0 ? Math.round((matched.length / total) * 100) : 85;
+      const allKw    = jdAnalysis.ats_keywords || [];
+      const matched  = allKw.filter(kw => previewText.includes(kw.toLowerCase()));
+      const missed   = allKw.filter(kw => !previewText.includes(kw.toLowerCase()));
+      const total    = allKw.length;
+      const score    = total > 0 ? Math.round((matched.length / total) * 100) : 85;
+
+      // Skills gap — must-have skills NOT in candidate profile at all
+      const mustHave   = jdAnalysis.must_have_skills || [];
+      const trueGaps   = (jdAnalysis.profile_gap_analysis?.gaps || []);
+      const skillsGap  = mustHave.filter(skill =>
+        !allSkillItems.some(s => s.toLowerCase().includes(skill.toLowerCase()) || skill.toLowerCase().includes(s.toLowerCase()))
+      );
 
       document.getElementById('scoreSection').classList.add('visible');
       document.getElementById('scoreNum').textContent = score + '%';
@@ -708,59 +826,78 @@ INSTRUCTIONS:
 
       document.getElementById('matchedChips').innerHTML =
         matched.map(k => `<span class="kw-chip match">${k}</span>`).join('') ||
-        '<span style="color:var(--muted);font-size:11px;">None</span>';
+        '<span style="color:var(--muted);font-size:11px;">None matched</span>';
+
       document.getElementById('missedChips').innerHTML =
         missed.map(k => `<span class="kw-chip miss">${k}</span>`).join('') ||
         '<span style="color:var(--muted);font-size:11px;">All matched</span>';
 
+      const gapToShow = [...new Set([...skillsGap, ...trueGaps])];
+      document.getElementById('gapChips').innerHTML =
+        gapToShow.map(k => `<span class="kw-chip gap">${k}</span>`).join('') ||
+        '<span style="color:var(--muted);font-size:11px;">No gaps identified — strong match</span>';
+
+      document.getElementById('gapNote').textContent = gapToShow.length > 0
+        ? 'These skills are required by the JD but not in your resume.json. Genuinely acquire and add them to stay competitive.'
+        : '';
+
+      // Keywords tab
+      const reflLines = reflectionLog.corrections?.length > 0
+        ? '\n\nREFLECTION CORRECTIONS (' + reflectionLog.corrections.length + '):\n' + reflectionLog.corrections.map(c=>'  - '+c).join('\n')
+        : '\n\nREFLECTION: No corrections needed.';
+
       document.getElementById('output_keywords').textContent =
-        `ATS SCORE: ${score}% (${matched.length} of ${total} keywords matched)\n\n` +
-        `MATCHED (${matched.length}): ${matched.join(', ') || 'None'}\n\n` +
-        `MISSING (${missed.length}): ${missed.join(', ') || 'None'}\n\n` +
-        `MUST-HAVE SKILLS: ${(jdAnalysis.must_have_skills||[]).join(', ') || 'Not specified'}\n\n` +
-        `NICE-TO-HAVE: ${(jdAnalysis.nice_to_have_skills||[]).join(', ') || 'Not specified'}\n\n` +
-        `KEY RESPONSIBILITIES:\n${(jdAnalysis.key_responsibilities||[]).map(r => '- '+r).join('\n') || 'Not specified'}`;
+        `ATS SCORE: ${score}% (${matched.length} of ${total} keywords matched)\n` +
+        `INITIAL PROFILE MATCH: ${jdAnalysis.profile_match_score||'N/A'}%\n\n` +
+        `MATCHED (${matched.length}):\n${matched.join(', ')||'None'}\n\n` +
+        `MISSING (${missed.length}):\n${missed.join(', ')||'None'}\n\n` +
+        `SKILLS GAP REPORT (${gapToShow.length}):\n${gapToShow.join(', ')||'No gaps — profile covers all must-have skills'}\n\n` +
+        `PROFILE STRENGTHS:\n${(jdAnalysis.profile_gap_analysis?.strengths||[]).map(s=>'  + '+s).join('\n')||'N/A'}\n\n` +
+        `PARTIALLY COVERED:\n${(jdAnalysis.profile_gap_analysis?.partially_covered||[]).map(s=>'  ~ '+s).join('\n')||'N/A'}\n\n` +
+        `MUST-HAVE SKILLS: ${(jdAnalysis.must_have_skills||[]).join(', ')||'Not specified'}\n\n` +
+        `KEY RESPONSIBILITIES:\n${(jdAnalysis.key_responsibilities||[]).map(r=>'  - '+r).join('\n')||'Not specified'}` +
+        reflLines;
 
       document.getElementById('dlResumeBtn').disabled = false;
       setPipelineStatus('All agents complete');
-      setStatus('Done. ATS Score: ' + score + '% — Resume ready to download.');
+      setStatus('Done. ATS Score: ' + score + '% — All 5 agents completed successfully.');
 
     } catch(err) {
-      setStep(1,'error','Error'); setStep(2,'error','Error'); setStep(3,'error','Error');
+      ['step1','step2','step25','step3','step4'].forEach(id => setStep(id,'error','Error'));
       setPipelineStatus('Error'); setStatus('Error: ' + err.message); console.error(err);
     } finally {
       btn.disabled = false; btn.textContent = 'Generate ATS-Optimised Resume';
     }
   }
 
-  // PLAIN TEXT PREVIEW (for output box + ATS scoring)
+  // ── PLAIN TEXT PREVIEW ──
   function buildPreviewText(tj) {
     if (!tj) return '';
     const lines = [];
     lines.push('PROFESSIONAL SUMMARY\n' + (tj.summary||''));
     lines.push('\nWORK EXPERIENCE');
     (tj.experience||[]).forEach(job => {
-      lines.push(job.role + ' | ' + job.company + ' | ' + (job.start_date||'') + ' - ' + (job.end_date||''));
-      (job.bullets||[]).forEach(b => lines.push('  - ' + b));
+      lines.push(job.role+' | '+job.company+' | '+(job.start_date||'')+' - '+(job.end_date||''));
+      (job.bullets||[]).forEach(b => lines.push('  - '+b));
     });
     lines.push('\nTECHNICAL SKILLS');
-    (tj.skills||[]).forEach(g => lines.push(g.category + ': ' + (g.items||[]).join(', ')));
+    (tj.skills||[]).forEach(g => lines.push(g.category+': '+(g.items||[]).join(', ')));
     lines.push('\nPROJECTS');
     (tj.projects||[]).forEach(pr => {
-      lines.push(pr.name + ' | ' + pr.client + ' | ' + pr.duration + ' | Role: ' + pr.role);
+      lines.push(pr.name+' | '+pr.client+' | '+pr.duration+' | Role: '+pr.role);
       lines.push(pr.description||'');
-      (pr.highlights||[]).forEach(h => lines.push('  - ' + h));
-      lines.push('Tech: ' + (pr.tech_stack||[]).join(', '));
+      (pr.highlights||[]).forEach(h => lines.push('  - '+h));
+      lines.push('Tech: '+(pr.tech_stack||[]).join(', '));
     });
     lines.push('\nEDUCATION');
-    (tj.education||[]).forEach(e => lines.push(e.degree + ' | ' + e.institution + ' | ' + e.year));
+    (tj.education||[]).forEach(e => lines.push(e.degree+' | '+e.institution+' | '+e.year));
     lines.push('\nCERTIFICATIONS');
     (tj.certifications||[]).forEach(c =>
-      lines.push(c.name + ' | ' + c.issuer + ' | ' + c.issued + (c.expires ? ' (Exp: ' + c.expires + ')' : '')));
+      lines.push(c.name+' | '+c.issuer+' | '+c.issued+(c.expires?' (Exp: '+c.expires+')':'')));
     return lines.join('\n');
   }
 
-  // BUILD RESUME WORD DOCUMENT — exact same format as main site
+  // ── BUILD RESUME WORD DOCUMENT ──
   function buildResumeWord(tj) {
     const p = resumeData.personal;
     const linkedinShort = p.linkedin.replace(/^https?:\/\/(www\.)?/,'');
@@ -773,13 +910,10 @@ INSTRUCTIONS:
           <td style="font-size:11.5pt;font-weight:bold;color:#0d0d0d;">${job.role}</td>
           <td style="text-align:right;font-size:10pt;color:#555;white-space:nowrap;">${job.start_date||''} &ndash; ${job.end_date||''}</td>
         </tr></table>
-        <p style="margin:1pt 0 6pt;font-size:10.5pt;color:#1a3f5c;font-weight:600;">${job.company}${job.location ? ' &bull; ' + job.location : ''}</p>
-        <ul style="margin:0;padding-left:17pt;">
-          ${(job.bullets||[]).map(b =>
-            `<li style="font-size:10.5pt;color:#111;margin-bottom:4pt;line-height:1.5;text-align:justify;mso-text-justify:inter-word;">${b}</li>`
-          ).join('')}
-        </ul></div>`
-    ).join('');
+        <p style="margin:1pt 0 6pt;font-size:10.5pt;color:#1a3f5c;font-weight:600;">${job.company}${job.location?' &bull; '+job.location:''}</p>
+        <ul style="margin:0;padding-left:17pt;">${(job.bullets||[]).map(b=>
+          `<li style="font-size:10.5pt;color:#111;margin-bottom:4pt;line-height:1.5;text-align:justify;mso-text-justify:inter-word;">${b}</li>`
+        ).join('')}</ul></div>`).join('');
 
     const skillsHTML = (tj.skills||[]).map(g =>
       `<p style="margin:0 0 6pt;font-size:10.5pt;line-height:1.55;"><strong style="color:#1a3f5c;">${g.category}:</strong> ${(g.items||[]).join(', ')}</p>`
@@ -793,14 +927,11 @@ INSTRUCTIONS:
         </tr></table>
         <p style="margin:1pt 0 4pt;font-size:10pt;color:#1a3f5c;">Client: ${pr.client} &bull; Role: ${pr.role} &bull; Team: ${pr.team_size}</p>
         <p style="font-size:10.5pt;color:#222;margin:0 0 5pt;line-height:1.55;text-align:justify;mso-text-justify:inter-word;">${pr.description||''}</p>
-        <ul style="margin:0 0 5pt;padding-left:17pt;">
-          ${(pr.highlights||[]).map(h =>
-            `<li style="font-size:10.5pt;color:#111;margin-bottom:3pt;line-height:1.45;text-align:justify;mso-text-justify:inter-word;">${h}</li>`
-          ).join('')}
-        </ul>
+        <ul style="margin:0 0 5pt;padding-left:17pt;">${(pr.highlights||[]).map(h=>
+          `<li style="font-size:10.5pt;color:#111;margin-bottom:3pt;line-height:1.45;text-align:justify;mso-text-justify:inter-word;">${h}</li>`
+        ).join('')}</ul>
         <p style="font-size:10pt;color:#444;margin:0;"><strong>Technologies:</strong> ${(pr.tech_stack||[]).join(', ')}</p>
-      </div>`
-    ).join('');
+      </div>`).join('');
 
     const eduHTML = (tj.education||[]).map(e =>
       `<div style="margin-bottom:10pt;">
@@ -809,21 +940,16 @@ INSTRUCTIONS:
           <td style="text-align:right;font-size:10pt;color:#555;">${e.year}</td>
         </tr></table>
         <p style="margin:1pt 0 0;font-size:10.5pt;color:#1a3f5c;">${e.institution}</p>
-      </div>`
-    ).join('');
+      </div>`).join('');
 
     const certHTML = (tj.certifications||[]).map(c =>
       `<p style="margin:0 0 5pt;font-size:10.5pt;color:#111;line-height:1.5;">` +
       `<strong>${c.name}</strong> &nbsp;&middot;&nbsp; ${c.issuer} &nbsp;&middot;&nbsp; ${c.issued}` +
-      `${c.expires ? ' &nbsp;&middot;&nbsp; Expires: ' + c.expires : ''}</p>`
+      `${c.expires?' &nbsp;&middot;&nbsp; Expires: '+c.expires:''}</p>`
     ).join('');
 
-    return `<html xmlns:o="urn:schemas-microsoft-com:office:office"
-      xmlns:w="urn:schemas-microsoft-com:office:word"
-      xmlns="http://www.w3.org/TR/REC-html40">
-<head><meta charset="UTF-8"/>
-<meta name=ProgId content=Word.Document/>
-<meta name=Generator content="Microsoft Word 15"/>
+    return `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head><meta charset="UTF-8"/><meta name=ProgId content=Word.Document/><meta name=Generator content="Microsoft Word 15"/>
 <style>
   @page Section1 { size:21.0cm 29.7cm; margin:2.0cm 2.2cm 1.8cm 2.2cm; mso-header-margin:0; mso-footer-margin:0; mso-paper-source:0; }
   div.Section1 { page:Section1; }
@@ -851,19 +977,15 @@ INSTRUCTIONS:
 </div></body></html>`;
   }
 
-  // BUILD COVER LETTER WORD DOCUMENT
+  // ── BUILD COVER LETTER WORD DOCUMENT ──
   function buildCoverWord(text) {
     const p = resumeData.personal;
     const safe = text
       .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-      .replace(/\n\n+/g, '</p><p class="cp">')
+      .replace(/\n\n+/g,'</p><p class="cp">')
       .replace(/\n/g,'<br/>');
-
-    return `<html xmlns:o="urn:schemas-microsoft-com:office:office"
-      xmlns:w="urn:schemas-microsoft-com:office:word"
-      xmlns="http://www.w3.org/TR/REC-html40">
-<head><meta charset="UTF-8"/>
-<meta name=ProgId content=Word.Document/>
+    return `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head><meta charset="UTF-8"/><meta name=ProgId content=Word.Document/>
 <style>
   @page Section1 { size:21.0cm 29.7cm; margin:2.5cm 2.5cm 2.5cm 2.5cm; }
   div.Section1 { page:Section1; }
@@ -877,20 +999,16 @@ INSTRUCTIONS:
 </div></body></html>`;
   }
 
-  // DOWNLOAD RESUME DOCX
   function downloadResumeDOCX() {
     if (!tailoredJSON) { alert('No resume generated yet.'); return; }
     const roleKey = document.getElementById('targetRole').value;
     const title   = resumeData.profiles[roleKey].title.replace(/[\s\/|]+/g,'_');
-    saveDoc(buildResumeWord(tailoredJSON),
-      resumeData.personal.name.replace(/ /g,'_') + '_' + title + '_Tailored_Resume.doc');
+    saveDoc(buildResumeWord(tailoredJSON), resumeData.personal.name.replace(/ /g,'_')+'_'+title+'_Tailored_Resume.doc');
   }
 
-  // DOWNLOAD COVER LETTER DOCX
   function downloadCoverDOCX() {
     if (!coverText) { alert('No cover letter generated yet.'); return; }
-    saveDoc(buildCoverWord(coverText),
-      resumeData.personal.name.replace(/ /g,'_') + '_Cover_Letter.doc');
+    saveDoc(buildCoverWord(coverText), resumeData.personal.name.replace(/ /g,'_')+'_Cover_Letter.doc');
   }
 
   function saveDoc(html, filename) {
@@ -906,8 +1024,8 @@ INSTRUCTIONS:
   function copyOutput(type) {
     const text = type === 'resume' ? buildPreviewText(tailoredJSON) : coverText;
     navigator.clipboard.writeText(text||'')
-      .then(() => setStatus('Copied to clipboard.'))
-      .catch(() => setStatus('Copy failed — please select and copy manually.'));
+      .then(()  => setStatus('Copied to clipboard.'))
+      .catch(()  => setStatus('Copy failed — please select and copy manually.'));
   }
 </script>
 </body>
