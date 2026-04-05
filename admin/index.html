@@ -112,6 +112,7 @@
     .toggle.on::after { left:19px; }
 
     .status-bar { padding:0.55rem 1.2rem; font-size:11px; font-family:var(--mono); color:var(--muted); border-top:1px solid var(--border); min-height:34px; }
+    footer { text-align:center; padding:1.5rem 2rem; font-size:12.5px; color:var(--muted); letter-spacing:0.01em; border-top:1px solid var(--border); margin-top:0.5rem; }
   </style>
 </head>
 <body>
@@ -158,20 +159,20 @@
         <div class="panel-body">
           <label>Paste Job Description</label>
           <textarea id="jdInput" rows="10"
-            placeholder="Paste the complete job description — role title, responsibilities, required skills, nice-to-haves, company context. More detail = better tailoring and higher ATS score."
-            oninput="clearSuggestion()"></textarea>
+            placeholder="Paste the complete job description — role title, responsibilities, required skills, nice-to-haves, company context. Profile will be auto-detected on Generate."
+            oninput="onJdInput()"></textarea>
 
           <div class="suggestion-banner" id="suggestionBanner">
-            <div class="suggestion-text">Best matching profile: <strong id="suggestedProfileName"></strong></div>
+            <div class="suggestion-text">Auto-detected profile: <strong id="suggestedProfileName"></strong></div>
             <div class="suggestion-actions">
-              <button class="btn btn-success" onclick="acceptSuggestion()">Use Suggested</button>
+              <button class="btn btn-success" onclick="acceptSuggestion()">Use This</button>
               <button class="btn btn-ghost"   onclick="dismissSuggestion()">Keep Current</button>
             </div>
           </div>
 
           <div class="field-row">
             <div>
-              <label>Profile</label>
+              <label>Profile <span style="font-size:10px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);">(auto-detected, can override)</span></label>
               <select id="targetRole">
                 <option value="de">Data Engineer</option>
                 <option value="swe">Software Engineer</option>
@@ -188,9 +189,6 @@
               </select>
             </div>
           </div>
-
-          <label>Company Name (optional)</label>
-          <input type="text" id="companyName" placeholder="e.g. Google, TCS, Infosys, Amgen" />
 
           <button class="generate-btn" id="generateBtn" onclick="runPipeline()">
             Generate ATS-Optimised Resume
@@ -294,8 +292,7 @@
 
   </div>
 </div>
-
-<script>
+<footer><p id="adminFooter"></p></footer>
   const ADMIN_PASSWORD = 'qwertyuiop1234567890';
 
   let apiKey       = '';
@@ -305,6 +302,22 @@
   let coverText    = '';
   let suggestedKey = null;
   let settings     = { keywords:true, quantify:true, allprojects:false };
+
+  // Dynamic footer year
+  document.getElementById('adminFooter').textContent =
+    '\u00A9 ' + new Date().getFullYear() + ' Sai Lingesh \u00B7 All rights reserved';
+
+  function onJdInput() {
+    // Clear suggestion banner when JD is edited so stale suggestion doesn't persist
+    document.getElementById('suggestionBanner').classList.remove('visible');
+    suggestedKey = null;
+  }
+
+  function acceptSuggestion() {
+    if (suggestedKey) document.getElementById('targetRole').value = suggestedKey;
+    dismissSuggestion();
+  }
+  function dismissSuggestion() { document.getElementById('suggestionBanner').classList.remove('visible'); }
 
   function login() {
     const pw = document.getElementById('pwInput').value;
@@ -440,13 +453,6 @@ ${certText}`
     };
   }
 
-  function acceptSuggestion() {
-    if (suggestedKey) document.getElementById('targetRole').value = suggestedKey;
-    dismissSuggestion();
-  }
-  function dismissSuggestion() { document.getElementById('suggestionBanner').classList.remove('visible'); }
-  function clearSuggestion()   { document.getElementById('suggestionBanner').classList.remove('visible'); suggestedKey = null; }
-
   async function runPipeline() {
     if (!apiKey)     { alert('Please save your OpenAI API key first.'); return; }
     const jd = document.getElementById('jdInput').value.trim();
@@ -466,7 +472,6 @@ ${certText}`
     tailoredJSON = null; coverText = ''; jdAnalysis = null;
 
     const roleKey   = document.getElementById('targetRole').value;
-    const company   = document.getElementById('companyName').value.trim();
     const outFormat = document.getElementById('outputFormat').value;
     const { profile, allSkillItems, contextString } = buildProfileContext(roleKey);
 
@@ -491,7 +496,7 @@ ${certText}`
 `Analyse this job description and return a JSON object with EXACTLY these keys:
 {
   "job_title": "exact title from JD",
-  "company": "${company || 'extract from JD or use Not Specified'}",
+  "company": "extract company name from JD if mentioned, otherwise use Not Specified",
   "seniority_level": "entry/mid/senior/lead",
   "must_have_skills": ["every required technical skill explicitly mentioned in JD"],
   "nice_to_have_skills": ["every optional or preferred skill mentioned in JD"],
@@ -501,7 +506,7 @@ ${certText}`
   "company_tone": "startup/corporate/tech/consulting",
   "profile_gap_analysis": {
     "strengths": ["skills from candidate profile that directly match JD requirements"],
-    "gaps": ["JD must-have requirements genuinely absent from candidate profile — skills they do not have"],
+    "gaps": ["JD must-have requirements genuinely absent from candidate profile"],
     "partially_covered": ["JD requirements partially covered by candidate profile experience"]
   },
   "best_profile_suggestion": {
@@ -511,7 +516,7 @@ ${certText}`
   }
 }
 
-CANDIDATE PROFILE SKILLS (for gap analysis only — do not use for resume content yet):
+CANDIDATE PROFILE SKILLS (for gap analysis only):
 ${profileSkillsSummary}
 
 AVAILABLE PROFILES: ${profileNames}
@@ -528,13 +533,21 @@ ${jd}`
         best_profile_suggestion: null
       };
 
-      // Show profile suggestion banner if confidence is high or medium
+      // Auto-detect profile from Agent 1 — set dropdown automatically
       const sugg = jdAnalysis.best_profile_suggestion;
-      if (sugg && resumeData.profiles[sugg.key] && sugg.confidence !== 'low') {
+      if (sugg && resumeData.profiles[sugg.key]) {
         suggestedKey = sugg.key;
         const title = resumeData.profiles[sugg.key].title;
-        document.getElementById('suggestedProfileName').textContent = title + ' (' + sugg.confidence + ' confidence)';
-        document.getElementById('suggestionBanner').classList.add('visible');
+        if (sugg.confidence === 'high') {
+          // High confidence — set automatically, show info banner
+          document.getElementById('targetRole').value = sugg.key;
+          document.getElementById('suggestedProfileName').textContent = title + ' (auto-selected, high confidence)';
+          document.getElementById('suggestionBanner').classList.add('visible');
+        } else {
+          // Medium/low — suggest but let user decide
+          document.getElementById('suggestedProfileName').textContent = title + ' (' + sugg.confidence + ' confidence)';
+          document.getElementById('suggestionBanner').classList.add('visible');
+        }
       }
 
       setStep('step1','done','Complete');
@@ -656,7 +669,7 @@ Return a JSON object with EXACTLY this structure — every field is required:
           {
             role: 'system',
             content:
-`You are an expert cover letter writer. Write compelling, specific, professional cover letters in flowing prose. Rules: Never open with "I am writing to apply". Never use bullet points. No personal pronoun "I" at the start of any sentence — use the candidate's achievements and skills as the subject instead where possible. Keep it natural and confident.`
+`You are an expert cover letter writer. Write compelling, specific, professional cover letters in flowing prose. Rules: Never open with "I am writing to apply". Never use bullet points. No personal pronoun "I" at the start of any sentence. Keep it natural and confident.`
           },
           {
             role: 'user',
@@ -665,7 +678,7 @@ Return a JSON object with EXACTLY this structure — every field is required:
 
 CANDIDATE: ${resumeData.personal.name}
 APPLYING FOR: ${jdAnalysis.job_title || 'the role'}
-AT COMPANY: ${company || jdAnalysis.company || 'the company'}
+AT COMPANY: ${jdAnalysis.company || 'the company'}
 INDUSTRY: ${jdAnalysis.industry_domain || 'technology'}
 COMPANY TONE: ${jdAnalysis.company_tone || 'professional'}
 
