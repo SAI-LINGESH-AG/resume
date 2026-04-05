@@ -190,7 +190,7 @@
           </div>
 
           <label>Company Name (optional)</label>
-          <input type="text" id="companyName" placeholder="e.g. Google, TCS, Infosys, Amgen" />
+          <input type="text" id="companyName" placeholder="Company Name" />
 
           <button class="generate-btn" id="generateBtn" onclick="runPipeline()">
             Generate ATS-Optimised Resume
@@ -744,7 +744,7 @@ INSTRUCTIONS:
         '<span style="color:var(--muted);font-size:11px;">No gaps — profile covers all must-have skills</span>';
 
       document.getElementById('gapNote').textContent = allGaps.length > 0
-        ? 'These skills are required by this JD but are not in your resume.json. Acquire them genuinely and add to your profile to strengthen future applications.'
+        ? 'These skills are required by this JD but are not in your database. Acquire them genuinely and add to your profile to strengthen future applications.'
         : '';
 
       document.getElementById('output_keywords').textContent =
